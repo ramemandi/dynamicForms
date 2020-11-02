@@ -1,0 +1,857 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Form Builder</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/vendor/css/vendor.css" />
+  <link rel="stylesheet" href="/dist/formbuilder.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.min.css">
+
+  <!-- <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" /> -->
+  <!-- Toaster message-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <!-- <script src="vendor/js/toastr.min.js"></script> -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #444;
+      font-family: sans-serif;
+    }
+
+    .fb-main {
+      background-color: #fff;
+      border-radius: 5px;
+      min-height: 600px;
+    }
+
+    .fb-main1 {
+      background-color: #fff;
+      border-radius: 5px;
+      min-height: 100px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 0 0;
+      position: relative;
+      font-family: 'Source Sans Pro', 'Open Sans', Tahoma;
+
+    }
+
+    input[type=text] {
+      height: 26px;
+      margin-bottom: 3px;
+    }
+
+    select {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .fb-save-wrapper1 {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+
+    td.day {
+      position: relative;
+    }
+
+    td.day.disabled:hover:before {
+      content: 'This date is disabled';
+      color: red;
+      background-color: white;
+      top: -22px;
+      position: absolute;
+      width: 136px;
+      left: -34px;
+      z-index: 1000;
+      text-align: center;
+      padding: 2px;
+    }
+
+    .hide {
+      /* position: absolute !important;
+      top: -9999px !important;
+      left: -9999px !important;
+      padding-left: 15px;
+      width: 50%; */
+      visibility: hidden;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
+    .show {
+      padding-left: 15px;
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='fb-main'><button>Save</button></div>
+  <!-- <div class='fb-mains'><button>Save</button></div> -->
+
+  <!-- <div class="fb-field-wrapper response-field-file editing" style="float: right;background-color: #1abc9c;top: -50px;">
+    <div class="js-form fb-save-wrapper">
+       <a class="fb-button" onclick="saveForm()" style="line-height: 1;">Save</a>  
+      <a class="fb-button" aria-hidden="true" style="float: right;" data-backdrop="static" title="Create Space"
+        data-keyboard="false" data-toggle="modal" data-target="#myForm">Next</a>
+    </div>
+  </div> -->
+  <div class="">
+    <div class="fb-main1" style="text-align: center;margin-top: -10px;">
+      <!-- <div id="alertMsg" style="display: none;" onclick="openPopuUpWithValue()"><label id="appendFormValue"> </a></div> -->
+      <div class="fb-save-wrapper1">
+        <!-- <button class="js-save-form fb-button" disabled="disabled">All changes saved</button> -->
+        <a class="fb-button" id="submit" aria-hidden="true" onclick="saveForm();"> Save </a>
+        <a class="fb-button" style="display: none;" id="openPopup" aria-hidden="true" data-backdrop="static"
+          title="Create Space" data-keyboard="false" data-toggle="modal" data-target="#myForm"></a>
+      </div>
+
+    </div>
+
+    <!-- <a class="fb-button" onclick="saveForm()" style="line-height: 1;">Save</a> -->
+
+  </div>
+
+
+  <div class="modal" id="myForm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalTitle">Create Form
+          </h4>
+          <!-- <button type="button" id="closeSpacePopup" onclick="resetData()" class="close"
+            data-dismiss="modal">&times;</button> -->
+        </div>
+
+        <div class="modal-body">
+          <form id="spaceForm" name="spaceF">
+            <div>
+              <div class="form-group">
+                <input type="text" maxlength="32" name="formName" id="formName" class="form-control"
+                  placeholder="Form Name" aria-label="Form Name" aria-describedby="basic-addon1">
+              </div>
+              <div class="form-group">
+                <input type="text" maxlength="128" name="formTitle" id="formTitle" class="form-control"
+                  placeholder="Form Title" aria-label="formTitle" aria-describedby="basic-addon1">
+              </div>
+              <div class="form-group">
+                <input type="text" id="formDescription" name="formDescription" autocomplete="off" class="form-control"
+                  id="formDescription" placeholder="Description">
+                <label id="fetch" style="display: none;"> </label>
+
+
+                <!-- <div class="form-group newlistPeople" id="listPeople1">
+                  
+                </div> -->
+
+              </div>
+              <div class="form-group">
+                <label id="fetch">Do you want to enable security options? </label>
+                <!--  <div >
+                <input type="radio" class="custom-control-input radio-inline" value="yes" onclick="security();" id="securityYes"
+                        name="securityRadios" > Yes
+                <input type="radio" class="custom-control-input radio-inline" value="no" onclick="security();" id="securityNo"
+                        name="securityRadios" checked> No
+                </div> -->
+                <!-- <div class="custom-control custom-checkbox custom-control-inline radio-inline">
+                  <input type="checkbox" class="custom-control-input" id="defaultInline1">
+                  <label class="custom-control-label" for="defaultInline1">1</label>
+                </div>
+                
+                 Default inline 2-->
+                <!--  <div class="custom-control custom-checkbox custom-control-inline radio-inline">
+                  <input type="checkbox" class="custom-control-input" id="defaultInline2">
+                  <label class="custom-control-label" for="defaultInline2">2</label>
+                </div> -->
+                <div>
+                  <div class="custom-control custom-radio radio-inline">
+                    <input type="radio" class="custom-control-input" value="yes"
+                      onclick="showSecurityOptions('showSecurity');" id="securityYes" name="isSecurityOptionSelected">
+                    <label class="custom-control-label" for="defaultUnchecked">Yes</label>
+                  </div>
+
+                  <!-- Default checked -->
+
+                  <div class="custom-control custom-radio radio-inline">
+                    <input type="radio" class="custom-control-input" value="no"
+                      onclick="showSecurityOptions('hideSecurity');" id="securityNo" name="isSecurityOptionSelected"
+                      checked=true>
+                    <label class="custom-control-label" for="defaultChecked">No</label>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="form-group" id="securityOptions" style="display: none;">
+                <label id="fetch" style=""> Choose below  any of the following security options</label>
+                <div class="row">
+                  <div class="col-md-12">
+
+
+                    <!-- Default checked -->
+
+                    <div class="custom-control custom-radio">
+                      <input type="checkbox" class="custom-control-input" value="" onclick="codeOptions(this);"
+                        id="code" name="isSecurityCodeSelected">
+                      <label class="custom-control-label" for="defaultChecked">Code</label>
+                    </div>
+                    <div id="codeOptions" style="display: none;">
+
+
+                      <div class="custom-control custom-radio radio-inline">
+                        <input type="radio" class="custom-control-input" value="enterOne"
+                          onclick="generateCode('text');" id="enterOne" name="securityCodeType">
+                        <label class="custom-control-label" for="defaultChecked">Manual Entry</label>
+                      </div>
+
+                      <div class="custom-control custom-radio radio-inline">
+                        <input type="radio" class="custom-control-input" value="auto" onclick="generateCode();"
+                          id="auto" name="securityCodeType">
+                        <label class="custom-control-label" for="defaultUnchecked">Auto Generate</label>
+                      </div>
+
+
+
+                      <div class="hide" id="customText">
+                        <input type="text" id="securityCode" style="text-transform:uppercase" name="securityCode"
+                          autocomplete="off" maxlength="6" class="form-control" placeholder="Secure Code">
+                      </div>
+                    </div>
+
+
+
+                    <div class="custom-control custom-radio">
+
+                      <input type="checkbox" class="custom-control-input" value="dueDate"
+                        onclick="showPicker(this,'datepicker');" id="dateExpiry" name="isdueDateSelected">
+                      <label class="custom-control-label" for="defaultChecked">
+                        Due Date</label>
+
+                      <div class="hide" id="datepicker">
+                        <input type='text' name="dueDate" class="form-control" id='dueDate' readonly />
+                      </div>
+                    </div>
+
+
+                    <div class="custom-control custom-radio">
+                      <input type="checkbox" class="custom-control-input" value="onetime" id="onetime"
+                        name="isOneTimeSelected">
+                      <label class="custom-control-label" for="defaultChecked">One time only</label>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+            </div>
+          </form>
+          <!-- <img src="Spin.gif" /> -->
+
+          <label id="errorMsg" style="color: red;"></label>
+          <br>
+          <div style="text-align:center;display:none;" id="loader"> </div>
+          <!-- <button type="button" style="cursor: pointer;" onclick="getInputValue();" class="btn btn-md btn-success">Save</button> -->
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" style="cursor: pointer;" onclick="closePopup()"
+            class="btn btn-md btn-success">Save</button>
+          <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="/vendor/js/vendor.js"></script>
+  <!-- <script src="/vendor/js/bootstrap.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="/dist/formbuilder.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      var date = new Date();
+      date.setDate(date.getDate() - 1);
+      $('#dueDate').datetimepicker({
+        format: 'MM/DD/YYYY',
+        ignoreReadonly: true,
+        allowInputToggle: true,
+        minDate: date
+      });
+    });
+  </script>
+
+  <script>
+    var formNameValue = null;
+
+    function randomCode(length) {
+      var result = '';
+      var length = 7;
+      var characters = 'ABCDEFGHJKMNPQRTUVWXY346789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    }
+
+    function generateCode(param) {
+      let codeOptions = document.getElementById('customText');
+      if (param === 'text') {
+        // codeOptions.style.display = 'inline';
+        codeOptions.classList.remove('hide');
+        codeOptions.className = 'show';
+        document.getElementById('securityCode').readOnly = false;
+        document.getElementById('securityCode').value = "";
+
+      } else {
+        // codeOptions.style.display = 'none';
+        // codeOptions.className = 'hide';
+        // codeOptions.classList.remove('show');
+
+        codeOptions.classList.remove('hide');
+        codeOptions.className = 'show';
+        document.getElementById('securityCode').readOnly = true;
+        document.getElementById('securityCode').value = randomCode();
+
+      }
+
+    }
+
+    function codeOptions(event) {
+      let codeOptions = document.getElementById('codeOptions');
+      if (event.checked) {
+        codeOptions.style.display = 'inline';
+      } else {
+        codeOptions.style.display = 'none';
+        $("input:radio[name='securityCodeType']").each(function (i) {
+          this.checked = false;
+        });
+
+        document.getElementById('securityCode').value = "";
+
+      }
+
+    }
+
+    function showSecurityOptions(param) {
+      let securityOptions = document.getElementById('securityOptions');
+      if (param === 'showSecurity') {
+        securityOptions.style.display = 'inline';
+      } else {
+        securityOptions.style.display = 'none';
+        $("input:radio[name='securityCodeType']").each(function (i) {
+          this.checked = false;
+        });
+        $("input:checkbox").each(function (i) {
+          this.checked = false;
+        });
+        document.getElementById('securityCode').value = '';
+        document.getElementById('dueDate').value = '';
+      }
+
+    }
+    function showPicker(event, param) {
+      let showDateTime = document.getElementById(param);
+      if (event.checked) {
+        showDateTime.classList.remove('hide');
+        showDateTime.className = 'show';
+
+      } else {
+        // let showDateTime = document.getElementById('datepicker');
+        showDateTime.className = 'hide';
+        showDateTime.classList.remove('show');
+        document.getElementById('dueDate').value = "";
+      }
+    }
+
+
+    function openPopuUpWithValue() {
+      const formId = urlParams.get('formId');
+      if (formId) {
+        let open = document.getElementById("openPopup");
+        open.click();
+      }
+    }
+    $(document).ready(function () {
+      const formId = urlParams.get('formId');
+
+      if (formId) {
+
+        // alertDiv.style.display = 'inline';
+      } else {
+        let open = document.getElementById("openPopup");
+        open.click();
+      }
+    })
+    var jsonData = null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const formId = urlParams.get('formId');
+    const poId = urlParams.get('poId');
+    const pmId = urlParams.get('pmId');
+    const agencyId = urlParams.get('agencyId');
+    const apiDomain = urlParams.get('apiDomain');
+
+    let editFormData = null;
+    if (formId) {
+      $.getJSON('/node/dynamicForms/editForm', { formId: formId, apiDomain: apiDomain }, function (data) {
+        console.log(data, '163');
+        let data1 = data;
+        if (data1.Valid) {
+          editFormData = data1.Item.fields;
+          formNameValue = data1.Item.formName;
+          document.getElementById('formName').value = data1.Item.formName;
+          document.getElementById('formTitle').value = data1.Item.formTitle;
+          document.getElementById('formDescription').value = data1.Item.formDescription;
+          if (data1.Item.isSecurityOptionSelected) {
+            document.getElementById('securityYes').checked = true;
+         
+              showSecurityOptions('showSecurity');
+
+            if (data1.Item.isSecurityOptionSelected && data1.Item.eFormSecurityOptions.isSecurityCodeSelected) { // eFormSecurityOptions
+              if(!data1.Item.eFormSecurityOptions.isdueDateSelected){
+              let showDateTime = document.getElementById('datepicker'); // datepicker
+              showDateTime.classList.remove('show');
+              showDateTime.className = 'hide';
+              }
+              let codeOptions = document.getElementById('codeOptions');
+              codeOptions.style.display = 'inline';
+              document.getElementById('code').checked = true;
+              if (data1.Item.eFormSecurityOptions.securityCodeType === 'enterOne') {
+                generateCode('text');
+                document.getElementById('enterOne').checked = true;
+                document.getElementById('auto').checked = false;
+                let enterone = document.getElementById('securityCode');
+                enterone.readOnly = false;
+                enterone.value = data1.Item.eFormSecurityOptions.securityCode;
+              } else if (data1.Item.eFormSecurityOptions.securityCodeType === 'auto') {
+                generateCode();
+                document.getElementById('auto').checked = true;
+                document.getElementById('enterOne').checked = false;
+                let enterone = document.getElementById('securityCode');
+                enterone.readOnly = true;
+                enterone.value = data1.Item.eFormSecurityOptions.securityCode;
+
+              }else{
+
+              }
+            } else {
+              document.getElementById('code').checked = false;
+              document.getElementById('enterOne').checked = false;
+              document.getElementById('auto').checked = false;
+              document.getElementById('securityCode').value = '';
+            }
+
+            if (data1.Item.isSecurityOptionSelected && data1.Item.eFormSecurityOptions.isdueDateSelected) {
+                // if(!data1.Item.eFormSecurityOptions.isSecurityCodeSelected){
+
+                // }
+              
+               // eFormSecurityOptions
+              document.getElementById('dateExpiry').checked = true;
+              let showDateTime = document.getElementById('datepicker'); // datepicker
+              showDateTime.classList.remove('hide');
+              showDateTime.className = 'show';
+              // let d = 'data1.Item.eFormSecurityOptions.dueDate'.sub
+              // console.log(data1.Item.eFormSecurityOptions.dueDate.substr(0,10),'substring');
+              // console.log(moment(data1.Item.eFormSecurityOptions.dueDate.substr(0,10)).format('MM-DD-YYYY'));
+
+              let date =moment(data1.Item.eFormSecurityOptions.dueDate.substr(0,10)).format('MM-DD-YYYY');
+              document.getElementById('dueDate').value =  date;
+             } else {
+              document.getElementById('dateExpiry').checked = false;
+              let showDateTime = document.getElementById('datepicker');
+              showDateTime.classList.remove('show');
+              showDateTime.className = 'hide';
+            }
+
+            if (data1.Item.isSecurityOptionSelected && data1.Item.eFormSecurityOptions.isOneTimeSelected) { // eFormSecurityOptions
+              if(!data1.Item.eFormSecurityOptions.isdueDateSelected){
+              let showDateTime = document.getElementById('datepicker'); // datepicker
+              showDateTime.classList.remove('show');
+              showDateTime.className = 'hide';
+              }
+              document.getElementById('onetime').checked = true;
+              } else {
+              document.getElementById('onetime').checked = false;
+             }
+
+          } else {
+            document.getElementById('securityNo').checked = true;
+            let codeOptions = document.getElementById('codeOptions');
+              codeOptions.style.display = 'none';
+          }
+
+
+
+
+          // isSecurityOptionSelected
+          // $('.fb-save-wrapper').appendTo('#display_div'); 
+          //     <button class="js-save-form fb-button" disabled="disabled">All changes saved</button>
+          // var n
+          // alertDiv.style.display = 'inline';
+          // let formLabel = document.getElementById('appendFormValue');
+          // formLabel.innerHTML = formNameValue;
+
+          $(function () {
+            fb = new Formbuilder({
+              selector: '.fb-main',
+              bootstrapData: editFormData
+            });
+
+            fb.on('save', function (payload) {
+              console.log(payload);
+              jsonData = payload;
+            })
+          });
+          let saveBtn = document.getElementById('submit');
+          saveBtn.innerHTML = 'Update';
+          let hideALLchanges = document.getElementsByClassName('js-save-form');
+          if (hideALLchanges.length > 0) {
+            hideALLchanges['0'].style.display = 'none';
+          }
+
+          let alertDiv = document.getElementsByClassName('fb-save-wrapper');
+          var d = document.createElement('div');
+          d.id = "formButton";
+          d.style.display = 'initial';
+          var aTag = document.createElement("button")
+          aTag.className = "searchPeople";
+          // aTag.name = 'B' + id;
+          aTag.id = 'openPopupBtn';
+          // aTag.value = '';
+          aTag.innerHTML = formNameValue;
+          // aTag.title = "Click to view form name, title, description";
+          // btn.className = "";
+          aTag.addEventListener('click', function () {
+            // openPopuUpWithValue();
+          });
+          aTag.style.cursor = 'initial';
+          let modelTitle = document.getElementById('modalTitle');
+          modelTitle.innerHTML = formNameValue;
+
+          var pencilTag = document.createElement("a")
+          pencilTag.className = "searchPeople1";
+          // pencilTag.name = 'B' + id;
+          pencilTag.id = 'openPopupBtn1';
+          pencilTag.addEventListener('click', function () {
+            openPopuUpWithValue();
+          });
+          var innerPencil = document.createElement("span")
+          innerPencil.className = "glyphicon glyphicon-pencil";
+          // pencilTag.name = 'B' + id;
+          innerPencil.id = 'pencilSpanBtn';
+          innerPencil.style.color = '#333'
+          innerPencil.style.padding = '10px';
+          innerPencil.title = "Click to view form name, title, description";
+          innerPencil.style.cursor = 'pointer';
+
+          pencilTag.appendChild(innerPencil);
+          d.appendChild(aTag);
+          d.appendChild(pencilTag);
+
+          // alertDiv.prepend(d);
+          // document.getElementsByClassName("thistime")[0].appendChild(first);
+          alertDiv[0].prepend(d);
+
+        }
+      });
+
+    } else {
+      $(function () {
+        fb = new Formbuilder({
+          selector: '.fb-main',
+          bootstrapData: []
+        });
+        let hideALLchanges = document.getElementsByClassName('js-save-form');
+        if (hideALLchanges.length > 0) {
+          hideALLchanges['0'].style.display = 'none';
+        }
+        fb.on('save', function (payload) {
+          console.log(payload);
+          jsonData = payload;
+        })
+      });
+    }
+
+    function saveForm() {
+      // console.log(jsonData);
+      // toastr.success('Form is created successfully.');
+      console.log(editFormData, '265');
+      let domain = apiDomain;
+      let data = {};
+      if (jsonData) {
+        data = JSON.parse(jsonData)
+        data.fields.forEach((ele, index) => {
+          return ele['order'] = index + 1;
+        })
+      } else {
+        data['fields'] = editFormData;
+      }
+      //console.log(data);
+
+      // console.log(data, 'after foreach');
+      data['formName'] = document.getElementById('formName').value;
+      data['formTitle'] = document.getElementById('formTitle').value;;
+      data['formDescription'] = document.getElementById('formDescription').value;
+      let eFormSecurityOptions = {};
+      let isSecurityOptionSelected = $("input[name=isSecurityOptionSelected]:checked").val();
+      if (isSecurityOptionSelected === 'yes') {
+        data['isSecurityOptionSelected'] = true;
+      } else {
+
+        data['isSecurityOptionSelected'] = false;
+      }
+
+      if (formId) {
+        data['eFormId'] = formId;
+      }
+      data['createdBy'] = poId;
+      data['modifiedBy'] = poId;
+      data['pmId'] = (pmId == null || pmId == '' || pmId == 'null') ? null : pmId;
+      data['agencyId'] = (agencyId == null || agencyId == '' || agencyId == 'null') ? null : agencyId;
+
+      $("input:checkbox").each(function () {
+        var $this = $(this);
+
+        if ($this.is(":checked")) {
+          let nameProp = $this.attr("name");
+          if (nameProp) {
+            if (nameProp == 'isSecurityCodeSelected') {
+              let chkradio = $("input[name=securityCodeType]:checked").val();
+              // enterOne,auto
+              if (chkradio === 'enterOne') {
+                eFormSecurityOptions['securityCodeType'] = chkradio;
+                let enterOne = document.getElementById('securityCode').value;
+                if (enterOne) {
+                  eFormSecurityOptions['securityCode'] = enterOne;
+                }
+
+              }
+              if (chkradio === 'auto') {
+                // generation autoCode and return here;
+                let auto = document.getElementById('securityCode').value; //= randomCode();
+                eFormSecurityOptions['securityCode'] = auto;
+                eFormSecurityOptions['securityCodeType'] = chkradio;
+
+              }
+            }
+            if (nameProp == 'isdueDateSelected') {
+              let dueDate = document.getElementById('dueDate').value;
+              if (dueDate) {
+                eFormSecurityOptions['dueDate'] = dueDate;
+              }
+            }
+            eFormSecurityOptions[`${nameProp}`] = true;
+          }
+        } else {
+          let nameProp = $this.attr("name");
+          if (nameProp) {
+            eFormSecurityOptions[`${nameProp}`] = false;
+          }
+        }
+      });
+
+      data['eFormSecurityOptions'] = eFormSecurityOptions;
+
+
+      console.log(data);
+      let params = { formData: data, apiDomain: domain }
+      if (data.formName != null && data.formName != "") {
+        $.post('/node/dynamicForms/saveForm', params, function (data) {
+          console.log(data, 'Saved Successfully');
+          if (data.success) {
+            toastr.success('Form is created successfully.');
+            document.getElementById('formName').value = null;
+            document.getElementById('formTitle').value = null;
+            document.getElementById('formDescription').value = null;
+            $(function () {
+              fb = new Formbuilder({
+                selector: '.fb-main',
+                bootstrapData: []
+              });
+
+              fb.on('save', function (payload) {
+                console.log(payload);
+                jsonData = payload;
+              })
+            });
+
+            window.parent.postMessage({
+              'func': 'parentFunc',
+              'message': 'Message text from iframe.'
+            }, "*");
+          }
+        });
+      } else {
+        toastr.error(' Form is saved, Please close the form.');
+
+      }
+
+    }
+    function closePopup() {
+
+      let error = document.getElementById('errorMsg');
+
+      // $("input:radio[name='securityCodeType']").each(function (i) {
+      //     this.checked = false;
+      //   });
+
+      // $('input:checkbox:checked').each(function (i) {
+      //   console.log(i, 'eachIteraion');
+      //   // checked.push((this).val()); // to your array
+
+      // });
+
+      let formName = $('#formName').val().trim();
+      console.log(formName, 'jjj');
+      if (formName != null && formName != "") {
+        // let chkradio = $("input[name=defaultExampleRadios]:checked").val();
+        // if (chkradio === 'dateExpiry') {
+        //   let date = document.getElementById('dueDate').value;
+        //   if (date == null || date == '') {
+        //     error.innerHTML = 'Expiration date cannot be null';
+        //     return false
+        //   }
+        // }
+        let status = false;
+        let isSecurityOptionSelected = $("input[name=isSecurityOptionSelected]:checked").val();
+        if (isSecurityOptionSelected === 'yes') {
+          var numberOfChecked = $('input:checkbox:checked').length;
+          if (numberOfChecked <= 0) {
+            error.style.display = "inline";
+            error.innerHTML = 'Please choose any one of the security option.';
+            status = false;
+            return false
+          } else {
+
+            //  let c =  $("input:checkbox").each(function () {return })
+            $("input:checkbox").each(function () {
+              var $this = $(this);
+              error.style.display = "none";
+              error.innerHTML = ''
+              if ($this.is(":checked")) {
+                let nameProp = $this.attr("name");
+                if (nameProp) {
+                  if (nameProp == 'isSecurityCodeSelected') {
+                    var numberNotChecked = $('input[name=securityCodeType]:not(":checked")').length;
+                    if (numberNotChecked === 2) {
+                      error.style.display = "inline";
+                      error.innerHTML = 'Please choose one of the code';
+                      status = false;
+                      return false;
+                    } else {
+                      let chkradio = $("input[name=securityCodeType]:checked").val();
+                      if (chkradio === 'enterOne') {
+                        let enterOne = document.getElementById('securityCode').value;
+                        if (enterOne.trim() == '' || enterOne.trim() == null) {
+                          // eFormSecurityOptions['securityCode'] = enterOne;
+                          error.style.display = "inline";
+                          error.innerHTML = 'Code cannot be blank';
+                          status = false;
+                          return false;
+                        }
+                        else {
+                          status = true;
+                          return true;
+                        }
+                      } else {
+                        status = true;
+                        return true;
+                      }
+
+                    }
+                    // enterOne,auto
+
+                  } else if (nameProp == 'isdueDateSelected') {
+                    let dueDate = document.getElementById('dueDate').value;
+                    if (dueDate.trim() == '' || dueDate.trim() == null) {
+                      error.style.display = "inline";
+                      error.innerHTML = 'Due date cannot be blank';
+                      status = false;
+                      return false;
+                    } else {
+                      status = true;
+                      return true;
+                    }
+                  } else {
+                    if ((nameProp == 'isOneTimeSelected')) {
+                      status = true;
+                      return true;
+                    }
+                  }
+
+                }
+              }
+              //   }
+
+            });
+            if (status === true) {
+              $('#myForm').modal('hide');
+              error.style.display = "none";
+              error.innerHTML = " ";
+            }
+            // console.log(c, 'ffff');
+          }
+
+
+        } else {
+          $('#myForm').modal('hide');
+          error.style.display = "none";
+          error.innerHTML = " ";
+        }
+
+
+
+      } else {
+        error.style.display = "inline";
+        error.innerHTML = "Form Name is mandatory"
+        //  alert('Formname is mandatory');
+      }
+    }
+
+    // function closePopup() {
+    //   let error = document.getElementById('errorMsg');
+    //   let formName = $('#formName').val().trim();
+    //   console.log(formName, 'jjj');
+    //   if (formName != null && formName != "") {
+    //     $('#myForm').modal('hide');
+    //     error.style.display = "none";
+    //     error.innerHTML = " ";
+
+    //   } else {
+    //     error.style.display = "inline";
+    //     error.innerHTML = "Form Name is mandatory"
+    //     //  alert('Formname is mandatory');
+    //   }
+    // }
+    function resetData() {
+
+      document.getElementById('formName').value = null;
+      document.getElementById('formTitle').value = null;
+      document.getElementById('formDescription').value = null;
+
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1468 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link type="text/css" href="https://cdn.jsdelivr.net/npm/alpaca@1.5.27/dist/alpaca/bootstrap/alpaca.min.css"
+    rel="stylesheet" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/datepicker.min.css"></script> -->
+  <!--  -->
+  <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfYcLWG86Q9RiOAtZE4ANFmJatlN5hrB4"></script>
+
+  <!--  -->
+
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+
+
+  <script type="text/javascript"
+    src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+
+  <!-- https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js -->
+
+  <!-- fileupload control (for UploadField) -->
+  <!-- <link rel="stylesheet" type="text/css" href="http://alpacajs.org/lib/blueimp-file-upload/css/jquery.fileupload.css" />
+  <link rel="stylesheet" type="text/css"
+    href="http://alpacajs.org/lib/blueimp-file-upload/css/jquery.fileupload-ui.css" />
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.fileupload-ui.js"></script> -->
+
+  <link rel="stylesheet" type="text/css" href="/node/dynamicForms/vendor/alpaca_fileupload/css/jquery.fileupload.css" />
+  <link rel="stylesheet" type="text/css" href="/node/dynamicForms/vendor/alpaca_fileupload/css/jquery.fileupload-ui.css" />
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.ui.widget.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.iframe-transport.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.fileupload.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.fileupload-process.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.fileupload-ui.js"></script>
+
+
+  <!-- handsontable (for GridField) -->
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.handsontable.full.js"></script>
+  <!-- <script src="http://alpacajs.org/lib/handsontable/dist/jquery.handsontable.full.js"></script> -->
+  <!-- <link rel="stylesheet" media="screen" href="../../lib/handsontable/dist/jquery.handsontable.full.css"/> -->
+
+  <!-- moment for date and datetime controls -->
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/moment-with-locales.min.js"></script>
+  <!-- <script src="http://alpacajs.org/lib/moment/min/moment-with-locales.min.js"></script> -->
+
+  <!-- bootstrap datetimepicker for date and datetime controls -->
+  <!-- <script src="http://alpacajs.org/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" media="screen" href="http://alpacajs.org/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" /> -->
+
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/bootstrap_datetimepicker/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" media="screen"
+    href="/node/dynamicForms/vendor/alpaca_fileupload/bootstrap_datetimepicker/bootstrap-datetimepicker.css" />
+
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/alpaca@1.5.27/dist/alpaca/bootstrap/alpaca.min.js"></script>
+
+  <!-- Toaster message-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <!-- <script src="vendor/js/toastr.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <!--SIGNATURE PAD-->
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+  <!-- <script src="/node/dynamicForms/vendor/signature-pad/app.js"></script> -->
+
+
+
+  <style>
+    div.alpaca-container-has-items>div {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      background: #333;
+
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      /* Center the DIV horizontally */
+    }
+
+    .fixed-header,
+    .fixed-footer {
+      width: 100%;
+      position: fixed;
+      /* background: #333; */
+      padding: 0px 40px 0px 40px;
+      color: #fff;
+    }
+
+    .fixed-header {
+      top: 0;
+    }
+
+    .fixed-footer {
+      bottom: 0;
+    }
+
+    /* Some more styles to beutify this example */
+    /* nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 7px 25px;
+      display: inline-block;
+    } */
+
+    .container p {
+      line-height: 200px;
+      /* Create scrollbar to test positioning */
+    }
+
+    .container-fluid {
+      max-height: calc(100% - 10px);
+      overflow-y: auto;
+    }
+
+    /* //   width:1000px; */
+    .wrapper {
+      position: relative;
+      height: 100px;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .signature-pad {
+      position: absolute;
+      left: 0;
+      top: 0;
+      /* width: 1100px; */
+      height: 100px;
+      background-color: white;
+    }
+
+    /* width: 400px; */
+    .wrapper1 {
+      position: relative;
+      height: 40px;
+      margin-top: 10px;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+
+
+</head>
+
+<body style="background-color: #c8c4c4; align:center">
+
+  <div class="fixed-header">
+
+    <!-- <div class="container-fluid"> -->
+    <div class="row" id="logo">
+      <!-- <img src="https://beta.tracktechllc.com/Images/Logos/ttl.jpg" width="30px" height="40px"> -->
+    </div>
+    <!-- </div> -->
+    <div class="row" id="fixedHeader">
+
+      <!-- <div class="container-fluid">
+        <h3>Testing Header</h3>
+      </div> -->
+
+      <!-- <div class="row" id="logo">
+        <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4"> <img src="https://beta.tracktechllc.com/Images/Logos/ttl.jpg"
+            width="30px" height="40px"></div>
+      </div>
+      <div class="row" id="fixedHeader">
+         <div class="">
+        <h3>Testing Header</h3>
+      </div>  
+        <div class='container'>
+          <h3>Testing Header</h3>
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+    <div class="col-md-4">
+     
+    </div>
+    <div class="col-md-8">
+      <h3>Testing Header</h3>
+    </div> -->
+    </div>
+  </div>
+  <div class="" style="padding-top: 30px;">
+    <div class="container-fluid">
+      <div class="">
+
+        <div id="form"></div>
+
+        <button type="button" id="myBtn" style="display: none;" class="btn btn-primary" data-toggle="modal"
+          data-target="#exampleModal">
+          Launch demo modal
+        </button>
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to clear the form?
+              </div>
+              <div class="modal-footer" id="confirmBox">
+                <button type="button" class="btn btn-secondary no" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary yes" data-dismiss="modal">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="" style="padding-top: 30px;">
+    <div class="container-fluid">
+      <div class="">
+
+        <div id="form"></div>
+
+
+        <button type="button" id="codemyBtn" style="display: none;" class="btn btn-primary" data-toggle="modal"
+          data-target="#codeexampleModal">
+          Launch demo modal
+        </button>
+
+
+        <div class="modal fade" id="codeexampleModal" tabindex="-1" role="dialog"
+          aria-labelledby="codeexampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="codeexampleModalLabel">Verification Code</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -19px;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form id="securityCode" name="securityForm">
+                  <div>
+                    <div class="form-group">
+                      <input type="text" maxlength="32" name="verificationCode" id="verificationCode"
+                        class="form-control" placeholder="Enter Verification Code" aria-label="verificationCode"
+                        aria-describedby="basic-addon1">
+                    </div>
+                  </div>
+                </form>
+                <label id="errorMsg" style="color: red;"></label>
+                <br>
+
+              </div>
+              <div class="modal-footer" id="">
+                <!-- <button type="button" class="btn btn-secondary no" data-dismiss="modal">No</button> -->
+                <button type="button" class="btn btn-primary yes" onclick="verifyCode()"> Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="" style="padding-top: 30px;">
+    <div class="container-fluid">
+      <div class="">
+
+        <div id="formExpiry"></div>
+
+
+        <button type="button" id="formExpiryBtn" style="display: none;" class="btn btn-primary" data-toggle="modal"
+          data-target="#formExpiryModal">
+          Launch demo modal
+        </button>
+
+
+        <div class="modal fade" id="formExpiryModal" tabindex="-1" role="dialog" aria-labelledby="formExpiryModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="formExpiryModalLabel">Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -19px;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+
+                <div>
+                  <label id="errorMessage" style="color: red;">Form is expired...please contact your PO.</label>
+                </div>
+
+
+              </div>
+              <div class="modal-footer" id="">
+                <!-- <button type="button" class="btn btn-secondary no" data-dismiss="modal">No</button> -->
+                <button type="button" class="btn btn-primary yes" data-dismiss="modal"> Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="fixed-footer" id="fixedFooter">
+    <!-- <div class="container">Copyright &copy; 2020 Tracktechllc.com , Version 1.0</div> -->
+  </div>
+  <script>
+    // setTimeout(() => {
+    //   var elements = document.querySelectorAll('div[class*="alpaca-container alpaca-vertical alpaca-container-has-items"');
+    //   if (elements.length > 0) {
+    //     for (let r = 0; r < elements.length; r++) {
+    //       const element = elements[r];
+    //       var div = document.createElement('div');
+    //       div.className = 'wrapper';
+    //       var canvasTag = document.createElement('canvas');
+    //       canvasTag.id = "signature-pad";
+    //       canvasTag.className = "signature-pad";
+    //       var signaturediv = document.createElement('div');
+    //       signaturediv.className = 'wrapper1';
+    //       var labelTag = document.createElement('label');
+    //       labelTag.innerHTML = 'E-Signature';
+    //       labelTag.id = "signature";
+    //       labelTag.style.width = "400px";
+
+
+
+    //       signaturediv.appendChild(labelTag);
+
+    //       div.appendChild(canvasTag);
+    //       //SAVE PNG BUTTON
+    //       // var btnPng = document.createElement('button');
+    //       // btnPng.id = "save-png";
+    //       // btnPng.innerHTML = "Save as PNG";
+
+    //       // div.appendChild(btnPng);
+
+    //       //SAVE JPEG BUTTON
+    //       var btnjpeg = document.createElement('a');
+    //       btnjpeg.id = "save-jpeg";
+    //       btnjpeg.className = 'btn btn-md btn-default';
+    //       btnjpeg.innerHTML = "Save";
+    //       // div.appendChild(btnjpeg);
+
+    //       //DRAW BUTTON
+    //       var btndraw = document.createElement('a');
+    //       btndraw.id = "draw";
+    //       btndraw.className = 'btn btn-md btn-default';
+    //       btndraw.innerHTML = "DRAW";
+
+    //       // div.appendChild(btndraw);
+
+    //       //SAVE Erase BUTTON
+    //       var btnerase = document.createElement('a');
+    //       btnerase.id = "erase";
+    //       btnerase.className = 'btn btn-md btn-default';
+    //       btnerase.innerHTML = "Erase";
+    //       // div.appendChild(btnerase);
+
+    //       //SAVE Clearn  BUTTON
+    //       var btnclear = document.createElement('a');
+    //       btnclear.id = "clear";
+    //       btnclear.className = 'btn btn-md btn-default';
+    //       btnclear.innerHTML = "clear";
+    //       // div.appendChild(btnerase);
+
+    //       elements[r].appendChild(signaturediv);
+
+    //       elements[r].appendChild(div);
+    //       var btndiv = document.createElement('div');
+    //       btndiv.className = 'wrapper';
+    //       btndiv.style.height = '40px'
+    //       //  btndiv.appendChild(btnPng);
+    //       btndiv.appendChild(btnjpeg);
+    //       btndiv.appendChild(btndraw);
+    //       btndiv.appendChild(btnerase);
+    //       btndiv.appendChild(btnclear);
+    //       elements[r].appendChild(btndiv);
+
+    //      }
+
+
+    //     var canvas = document.getElementById('signature-pad');
+
+    //     function resizeCanvas() {
+
+    //       var ratio = Math.max(window.devicePixelRatio || 1, 1);
+    //       canvas.width = canvas.offsetWidth * ratio;
+    //       canvas.height = canvas.offsetHeight * ratio;
+    //       canvas.getContext("2d").scale(ratio, ratio);
+
+    //     }
+
+    //     window.onresize = resizeCanvas;
+    //     resizeCanvas();
+
+    //     var signaturePad = new SignaturePad(canvas, {
+    //       backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    //     });
+
+
+    //     document.getElementById('save-jpeg').addEventListener('click', function () {
+    //       if (signaturePad.isEmpty()) {
+    //         return alert("Please provide a signature first.");
+    //       }
+
+    //       var data = signaturePad.toDataURL('image/jpeg');
+    //       localStorage.setItem('sign', data);
+    //       console.log(data);
+    //       // window.open(data);
+    //     });
+
+    //     document.getElementById('clear').addEventListener('click', function () {
+    //       signaturePad.clear();
+    //     });
+
+    //     document.getElementById('draw').addEventListener('click', function () {
+    //       var ctx = canvas.getContext('2d');
+    //       console.log(ctx.globalCompositeOperation);
+    //       ctx.globalCompositeOperation = 'source-over'; // default value
+    //     });
+
+    //     document.getElementById('erase').addEventListener('click', function () {
+    //       var ctx = canvas.getContext('2d');
+    //       ctx.globalCompositeOperation = 'destination-out';
+    //     });
+
+
+    //   }
+
+    // }, 3000);
+
+  </script>
+
+  <script>
+
+    $(document).ready(function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const formId = urlParams.get('eFormId');
+      const Domain = urlParams.get('apiDomain');
+      $.getJSON('/node/dynamicForms/getFormLayout', { formId: formId, apiDomain: Domain }, function (layoutData) {
+        // console.log('data', layoutData);
+        let data = layoutData;
+        if (data.data.Valid) {
+          let formLayoutdata = data.data.Item;
+          // for (let k = 0; k < formLayoutdata.length; k++) {
+          // const element = formLayoutdata[k];
+          if (formLayoutdata.cssFilePath) {
+            var headID = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = formLayoutdata.cssFilePath;
+            //link.href = 'http://fonts.googleapis.com/css?family=Oswald&effect=neon';
+            headID.appendChild(link);
+          }
+          if (formLayoutdata.header) {
+            let header = document.getElementById("fixedHeader");
+            header.innerHTML = formLayoutdata.header;
+          }
+          if (formLayoutdata.footer) {
+            let footer = document.getElementById("fixedFooter");
+            footer.innerHTML = formLayoutdata.footer;
+          }
+          if (formLayoutdata.logo) {
+            let header = document.getElementById("fixedHeader");
+            header.style.marginTop = "-30px";
+
+            let logodiv = document.getElementById("logo");
+            let logo = document.createElement('img');
+
+            logo.src = formLayoutdata.logo.FilePath;
+            logo.width = 30;
+            logo.height = 40;
+            // logo.width = '30px';
+            // logo.height = '40px';
+            logodiv.append(logo);
+            // footer.innerHTML = formLayoutdata.footerHtml;
+          }
+          if (formLayoutdata.backGroundColor) {
+            document.body.style.backgroundColor = formLayoutdata.backGroundColor;
+          }
+          // }
+
+        } else {
+          console.log('No layout data');
+        }
+      })
+
+    })
+
+  </script>
+
+  <script type="text/javascript">
+    //  val.formURL + "&formResponseId=" + val.formResponseId + "&eFormId=" + val.eFormId + "&apiDomain=" + apiDomain;d
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const formId = urlParams.get('eFormId');
+    const apiDomain = urlParams.get('apiDomain');
+    const formResponseId = urlParams.get('formResponseId');
+
+    let formName = null;
+    let formDescription = null;
+    let formTitle = null;
+    let editFormData = null;
+    if (formId && formResponseId) {
+      $.getJSON('/node/dynamicForms/formValidationSettings', { formResponseId: formResponseId, formId: formId, apiDomain: apiDomain }, function (jsonData) {
+        // console.log(jsonData, 'jsonData');
+        let apiData = jsonData;
+        if (apiData.success) {
+          if (apiData.securityVerification.securityVerification === 'CODE') {
+            var btn = document.getElementById("codemyBtn");
+            btn.click();
+          }
+          // } else if (apiData.securityVerification === 'FormExpired') {
+          //   var btn = document.getElementById("formExpiryBtn");
+          //   console.log(btn, 'Button');
+          //   btn.click();
+          // }
+          else {
+            if (apiData.securityVerification.Valid) {
+              loadFormwithJson();
+            }
+          }
+        } else {
+          toastr.error(apiData.securityVerification);
+        }
+
+      });
+    }else{
+      loadFormwithJson();
+    }
+
+
+    function loadFormwithJson() {
+      $.getJSON('/node/dynamicForms/editForm', { formResponseId: formResponseId, formId: formId, apiDomain: apiDomain }, function (jsonData) {
+        // console.log(jsonData, '163');
+        let data1 = jsonData;
+        if (data1.Valid) {
+          data = data1.Item;
+          formName = data.formName;
+          formDescription = data.formDescription;
+          let code = '';
+          formTitle = data.formTitle;
+          if (data.isSecurityOptionSelected) {
+            if (data.eFormSecurityOptions.isSecurityCodeSelected) {
+              code = data.eFormSecurityOptions.securityCode;
+            } else {
+              code = data.eFormSecurityOptions.securityCode;
+            }
+          } else {
+            code = '';
+          }
+          // document.getElementById('formName').value = data1.Item.formName;
+          // document.getElementById('formTitle').value = data1.Item.formTitle;
+          // document.getElementById('formDescription').value = data1.Item.formDescription;
+          var schemaObject = [];
+          var optionsOject = [];
+          let finalObject;
+          var formObject = [];
+          var tempObject = {}
+          for (let h = 0; h < data.fields.length; h++) {
+            const element = data.fields[h];
+            switch (data.fields[h].field_type) {
+              case 'text': textBox(data.fields[h])
+                break;
+              case 'paragraph': paraGraph(data.fields[h])
+                break;
+              case 'dropdown': dropdown(data.fields[h])
+                break;
+              case 'checkboxes': checkbox(data.fields[h])
+                break;
+              case 'radio': radio(data.fields[h])
+                break;
+              case 'file': file(data.fields[h]);
+                break;
+              case 'date': date(data.fields[h]);
+                break;
+              case 'number': number(data.fields[h]);
+                break;
+              case 'email': email(data.fields[h]);
+                break;
+              case 'time': time(data.fields[h]);
+                break;
+              case 'location': location(data.fields[h]);
+                break;
+              case 'esignature': esign(data.fields[h]);
+                break;
+
+              default:
+                break;
+            }
+          }
+
+
+          // var x = document.getElementById("demo");
+          var loc = null
+          let map, infoWindow;
+
+          function initMap(label, state) {
+            console.log(label, '649');
+            let status = (navigator.geolocation) ? navigator.geolocation : false;
+            // $(label).alpaca({
+            //   "data": "I Love Alpaca Ice Cream!"
+            // });
+            // $(label).alpaca()
+            // Try HTML5 geolocation.
+            // return new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                  };
+                  if (status) {
+                    var name = document.getElementById('location1');
+                    var latLng = pos.lat + ':' + pos.lng;
+                    name.value = latLng;
+                  } else {
+                    var name = document.getElementById('location1');
+                    name.value = '';
+                  }
+                  // resolve(true)
+                },
+                () => {
+                  if (!status) {
+                    var name = document.getElementById('location1');
+                    name.value = '';
+                  }
+                  handleLocationError(true);
+                  // reject(false);
+                }
+
+              );
+            } else {
+              if (!status) {
+                var name = document.getElementById('location1');
+                name.value = '';
+              }
+              // Browser doesn't support Geolocation
+              handleLocationError(false);
+              // reject(false)
+
+            }
+
+            // })
+          }
+          function handleLocationError(browserHasGeolocation) {
+            let temp;
+            temp = (browserHasGeolocation) ? "Error: The Geolocation service failed." : "Error: Your browser doesn't support geolocation."
+            console.log(temp, '699');
+          }
+          // function getLocation() {
+          //       if (navigator.geolocation) {
+          //         return navigator.geolocation.getCurrentPosition(function (showPosition) {
+          //           return showPosition1(showPosition)
+          //         }, null, null);
+          //       } else {
+          //         console.log("Geolocation is not supported by this browser.");
+          //         return false;
+          //         // x.innerHTML = "Geolocation is not supported by this browser.";
+          //       }
+          //     }
+
+          //     function showPosition1(position) {
+          //       location = position.coords.latitude;
+          //              return position.coords.latitude;
+          //     }
+          function esignature(label) {
+            setTimeout(() => {
+              var elements = document.querySelectorAll('div[class*="alpaca-container alpaca-vertical alpaca-container-has-items"');
+              if (elements.length > 0) {
+                for (let r = 0; r < elements.length; r++) {
+                  const element = elements[r];
+                  var div = document.createElement('div');
+                  div.className = 'wrapper';
+                  var canvasTag = document.createElement('canvas');
+                  canvasTag.id = "signature-pad";
+                  canvasTag.className = "signature-pad";
+                  //  canvasTag.width = 500;
+                  //  canvasTag.height = 125;
+                  var signaturediv = document.createElement('div');
+                  signaturediv.className = 'wrapper1';
+                  var labelTag = document.createElement('label');
+                  labelTag.innerHTML = label;
+                  labelTag.id = "signature";
+                  labelTag.style.width = "400px";
+
+
+
+                  signaturediv.appendChild(labelTag);
+
+                  div.appendChild(canvasTag);
+                  //SAVE PNG BUTTON
+                  // var btnPng = document.createElement('button');
+                  // btnPng.id = "save-png";
+                  // btnPng.innerHTML = "Save as PNG";
+
+                  // div.appendChild(btnPng);
+
+                  //SAVE JPEG BUTTON
+                  var btnjpeg = document.createElement('a');
+                  btnjpeg.id = "save-jpeg";
+                  btnjpeg.className = 'btn btn-md btn-default';
+                  btnjpeg.style.display = 'none';
+                  btnjpeg.innerHTML = "Save";
+                  // div.appendChild(btnjpeg);
+
+                  //DRAW BUTTON
+                  var btndraw = document.createElement('a');
+                  btndraw.id = "draw";
+                  btndraw.className = 'btn btn-md btn-default';
+                  btndraw.innerHTML = "DRAW";
+
+                  // div.appendChild(btndraw);
+
+                  //SAVE Erase BUTTON
+                  var btnerase = document.createElement('a');
+                  btnerase.id = "erase";
+                  btnerase.className = 'btn btn-md btn-default';
+                  btnerase.innerHTML = "Erase";
+                  // div.appendChild(btnerase);
+
+                  //SAVE Clearn  BUTTON
+                  var btnclear = document.createElement('a');
+                  btnclear.id = "clear";
+                  btnclear.className = 'btn btn-md btn-default';
+                  btnclear.innerHTML = "clear";
+                  // div.appendChild(btnerase);
+
+                  elements[r].appendChild(signaturediv);
+
+                  elements[r].appendChild(div);
+                  var btndiv = document.createElement('div');
+                  btndiv.className = 'wrapper';
+                  btndiv.style.height = '50px'
+                  //  btndiv.appendChild(btnPng);
+                  btndiv.appendChild(btnjpeg);
+                  btndiv.appendChild(btndraw);
+                  btndiv.appendChild(btnerase);
+                  btndiv.appendChild(btnclear);
+                  elements[r].appendChild(btndiv);
+
+                  //         <div class="wrapper">
+                  //   <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+                  // </div>
+
+                  // <button id="save-png">Save as PNG</button>
+                  // <button id="save-jpeg">Save as JPEG</button>
+                  // <!-- <button id="save-svg">Save as SVG</button> -->
+                  // <button id="draw">Draw</button>
+                  // <button id="erase">Erase</button>
+                  // <button id="clear">Clear</button>
+                }
+
+
+                // var canv = document.getElementById('form');
+
+                var canvas = document.getElementById('signature-pad');
+                // canv.appendChild(canvas);
+                // Adjust canvas coordinate space taking into account pixel ratio,
+                // to make it look crisp on mobile devices.
+                // This also causes canvas to be cleared.
+                function resizeCanvas() {
+                  // When zoomed out to less than 100%, for some very strange reason,
+                  // some browsers report devicePixelRatio as less than 1
+                  // and only part of the canvas is cleared then.
+                  var ratio = Math.max(window.devicePixelRatio || 1, 1);
+                  canvas.width = canvas.offsetWidth * ratio;
+                  canvas.height = canvas.offsetHeight * ratio;
+                  canvas.getContext("2d").scale(ratio, ratio);
+                  // canvas.width = window.innerWidth;
+                  // canvas.height = window.innerHeight;
+                }
+
+                window.onresize = resizeCanvas;
+                resizeCanvas();
+
+                var signaturePad = new SignaturePad(canvas, {
+                  backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+                });
+
+                // document.getElementById('save-png').addEventListener('click', function () {
+                //   if (signaturePad.isEmpty()) {
+                //     return alert("Please provide a signature first.");
+                //   }
+
+                //   var data = signaturePad.toDataURL('image/png');
+                //   console.log(data);
+                //   window.open(data);
+                // });
+
+
+
+
+
+                // document.getElementById('save-svg').addEventListener('click', function () {
+                //   if (signaturePad.isEmpty()) {
+                //     return alert("Please provide a signature first.");
+                //   }
+
+                //   var data = signaturePad.toDataURL('image/svg+xml');
+                //   console.log(data);
+                //   console.log(atob(data.split(',')[1]));
+                //   window.open(data);
+                // });
+
+                document.getElementById('save-jpeg').addEventListener('click', function () {
+                  if (signaturePad.isEmpty()) {
+                    alert("Please provide a signature first.");
+                    return false;
+                  }
+
+                  var data = signaturePad.toDataURL('image/jpeg');
+                  localStorage.setItem('sign', data);
+                  console.log(data);
+                  // window.open(data);
+                });
+
+                document.getElementById('clear').addEventListener('click', function () {
+                  signaturePad.clear();
+                });
+
+                document.getElementById('draw').addEventListener('click', function () {
+                  var ctx = canvas.getContext('2d');
+                  console.log(ctx.globalCompositeOperation);
+                  ctx.globalCompositeOperation = 'source-over'; // default value
+                });
+
+                document.getElementById('erase').addEventListener('click', function () {
+                  var ctx = canvas.getContext('2d');
+                  ctx.globalCompositeOperation = 'destination-out';
+                });
+
+
+              }
+
+            }, 3000);
+
+          }
+
+
+          function esign(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let d;
+            // (async () => {
+            //   d = await esignature(label);
+            // })
+            esignature(label)
+            // obj[`${label}`] = { type: "any", title: data.label, required: data.required }
+            // let text = schemaObject.push(obj);
+            // opt[`${label}`] = { id: "location1", "type": "any", "addressValidation": true, "showMapOnLoad": true }
+            // optionsOject.push(opt);
+
+            return d;
+          }
+
+
+          function location(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let d;
+            // (async () => {
+            //   d = await initMap(label, data.required);
+            // })
+            // d = initMap(label);
+
+            obj[`${label}`] = { default: d, type: "any", title: data.label, required: data.required }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { id: "location1", "type": "any", "addressValidation": true, "showMapOnLoad": true, disabled: true }
+            optionsOject.push(opt);
+
+            return text;
+          }
+
+
+
+          function descriptionCheck(data) {
+            let desc = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('description')) {
+                return desc = data.field_options.description;
+              } else {
+                return desc = null;
+              }
+              // console.log(desc,'description');
+            } else {
+              return desc = null;
+            }
+          }
+          function minimumCheck(data) {
+            let minimum = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('min')) {
+                return minimum = data.field_options.min;
+              } else {
+                return minimum = null;
+              }
+              // console.log(minimum,'minimumription');
+            } else {
+              return minimum = null;
+            }
+          }
+
+          function maximumCheck(data) {
+            let maximum = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('max')) {
+                return maximum = data.field_options.max;
+              } else {
+                return maximum = null;
+              }
+              // console.log(maximum,'maximumription');
+            } else {
+              return maximum = null;
+            }
+          }
+
+          function minlenCheck(data) {
+            let minlen = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('minlength')) {
+                return minlen = data.field_options.minlength;
+              } else {
+                return minlen = null;
+              }
+              // console.log(minlen,'minlenription');
+            } else {
+              return minlen = null;
+            }
+          }
+
+          function maxlenCheck(data) {
+            let maxlen = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('maxlength')) {
+                return maxlen = data.field_options.maxlength;
+              } else {
+                return maxlen = null;
+              }
+              // console.log(maxlen,'maxlenription');
+            } else {
+              return maxlen = null;
+            }
+          }
+          function email(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            //pattern: `${/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i}`
+            obj[`${label}`] = { format: 'email', type: "string", title: data.label, required: data.required, description: (description) ? description : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { "helper": (description) ? description : null, "placeholder": "", disallowEmptySpaces: true, disallowOnlyEmptySpaces: true, numericEntry: true }
+            optionsOject.push(opt);
+            return text;
+          }
+
+          function number(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            let minimum = minimumCheck(data);
+            let maximum = maximumCheck(data);
+            obj[`${label}`] = { type: "number", title: data.label, required: data.required, description: (description) ? description : null, minimum: (minimum) ? minimum : null, maximum: (maximum) ? maximum : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { "helper": (description) ? description : null, "placeholder": "", disallowEmptySpaces: true, disallowOnlyEmptySpaces: true, numericEntry: true }
+            optionsOject.push(opt);
+            return text;
+          }
+
+          function textBox(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            let minlen = minlenCheck(data);
+            let maxlen = maxlenCheck(data);
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, description: (description) ? description : null, minLength: (minlen) ? minlen : null, maxLength: (maxlen) ? maxlen : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { size: "20", "helper": (description) ? description : null, "placeholder": "" }
+            optionsOject.push(opt);
+            return text;
+          }
+          function paraGraph(data) {
+            let label = data.label;
+            let obj = {}
+            let opt = {};
+            let description = descriptionCheck(data);
+            let minlen = minlenCheck(data);
+            let maxlen = maxlenCheck(data);
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, description: (description) ? description : null, minLength: (minlen) ? minlen : null, maxLength: (maxlen) ? maxlen : null };
+            let text1 = schemaObject.push(obj);
+            opt[`${label}`] = { type: "textarea", "label": label, "placeholder": "", "helper": (description) ? description : null }
+            optionsOject.push(opt);
+            return text1;
+          }
+          function dropdown(data) {
+            let label = data.label;
+            let obj = {};
+            let enums = [];
+            let opt = {};
+            let include_blank = null;
+            let description = descriptionCheck(data);
+            if (data.field_options.options.length > 0) {
+              for (let o = 0; o < data.field_options.options.length; o++) {
+                const element = data.field_options.options[o].label;
+                enums.push(element);
+              }
+            }
+            // if(data.field_options.include_blank_option){
+            // }
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, enum: enums, description: (description) ? description : null };
+            let text2 = schemaObject.push(obj);
+            opt[`${label}`] = { type: "select", "helper": (description) ? description : null, "optionLabels": enums };
+            optionsOject.push(opt);
+            return true;
+
+          }
+
+
+          function checkbox(data) {
+            let label = data.label;
+            let obj = {}
+            let enums = [];
+            let opt = {};
+            let description = descriptionCheck(data);
+            let dataArray = null
+            if (data.field_options.options.length > 0) {
+              for (let o = 0; o < data.field_options.options.length; o++) {
+                const element = data.field_options.options[o].label;
+                enums.push(element);
+                if (data.field_options.options[o].checked) {
+                  dataArray = data.field_options.options[o].label;
+                }
+              }
+            }
+            obj[`${label}`] = { type: "array", required: data.required, enum: enums, description: (description) ? description : null };
+            let text3 = schemaObject.push(obj);
+            opt[`${label}`] = { "hideNone": true, type: "checkbox", "label": label, "optionLabels": enums, "helper": (description) ? description : null };
+            optionsOject.push(opt);
+            return text3;
+          }
+          function radio(data) {
+            let label = data.label;
+            let obj = {}
+            let enums = [];
+            let opt = {};
+            let description = descriptionCheck(data);
+            if (data.field_options.options.length > 0) {
+              for (let o = 0; o < data.field_options.options.length; o++) {
+                const element = data.field_options.options[o].label;
+                enums.push(element);
+              }
+            }
+            obj[`${label}`] = { required: data.required, enum: enums, description: (description) ? description : null };
+            let text4 = schemaObject.push(obj);
+            opt[`${label}`] = { "hideNone": true, type: "radio", "label": label, "helper": (description) ? description : null, "optionLabels": enums };
+            optionsOject.push(opt);
+            return text4;
+          }
+
+          // function file(data) {
+          //   let label = data.label;
+          //   let obj = {};
+          //   let opt = {};
+          //   let description = descriptionCheck(data);
+          //   //  obj[`${label}`] = { type: "string", title: data.label, format: "uri", description: data.field_options.description }
+          //   obj[`${label}`] = { type: "file", title: data.label, format: "uri",description: (description) ? description : null }
+          //   let text = schemaObject.push(obj);
+          //   // opt[`${label}`] = { "styled": true, "type": "upload" }
+          //   opt[`${label}`] = {
+          //     "styled": true, "id": "photo_field", "type": "upload", "multiple": "false", "upload": {
+          //       "url": "https://beta-api.tracktechllc.com/api/eForms/UpdateFormResponseFile?formResponseId="+formResponseId+"&fileLabel="+label
+
+          //     }
+          //   }
+          //   // opt[`${label}`] = {
+          //   //   "type": "upload" ,"upload":{"url":"http://localhost:3000/getResponses"}  
+          //   // }
+          //   optionsOject.push(opt);
+          //   return text;
+          //   // });
+          // }
+
+          function file(data) {
+
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, format: "uri", description: (description) ? description : null }
+            // obj[`${label}`] = { type: "file", title: data.label, format: "uri", description: data.field_options.description }
+
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = {
+              id: "field1", "styled": true, "type": "file", "helper": (description) ? description : null,
+              "selectionHandler": function (files, data) {
+                var myArray = [];
+                var file = {};
+                for (var i = 0; i < files.length; i++) {
+                  file = {
+                    'lastMod': files[i].lastModified,
+                    'lastModDate': files[i].lastModifiedDate,
+                    'name': files[i].name,
+                    'size': files[i].size,
+                    'type': files[i].type,
+                  }
+                  //add the file obj to your array
+                  myArray.push(file)
+                }
+
+                this.data = data;
+              }
+            }
+            // opt[`${label}`] = {
+            //   "styled": true,"id":"photo_field", "type": "upload", "multiple": "false", "upload": {
+            //     "url": "http://localhost:3000/getResponses"
+            //   }
+            // }
+            // opt[`${label}`] = {
+            //   "type": "upload" ,"upload":{"url":"http://localhost:3000/getResponses"}  
+            // }
+
+
+            optionsOject.push(opt);
+
+            return text;
+
+            // });
+          }
+          function date(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            obj[`${label}`] = { format: "date", title: label, required: data.required }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { type: "date", dateFormat: 'MM/DD/YYYY', "placeholder": " ", "helper": (description) ? description : null }
+            optionsOject.push(opt);
+            return text;
+          }
+
+          function time(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            obj[`${label}`] = { format: "time", title: label, required: data.required, "helper": (description) ? description : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { type: "time", dateFormat: "HH:mm:ss" }
+            optionsOject.push(opt);
+            return text;
+          }
+          if (schemaObject.length > 0) {
+            let schema = {};
+            schema = Object.assign({}, ...schemaObject);
+          }
+          //    $(document).ready(function () {
+          if (schemaObject.length > 0 && optionsOject.length > 0) {
+            let schema = Object.assign({}, ...schemaObject);
+            let options = Object.assign({}, ...optionsOject);
+
+            // console.log(schema, options);
+            //"action": "https://beta-api.tracktechllc.com/api/eForms/UpdateFormResponse?formResponseId="+formResponseId,
+            var now = new Date();
+            $("#form").alpaca({
+              //  "dataSource": main(),
+              "schema": {
+                "title": formName,
+                "description": formDescription,
+                "type": "object",
+                "properties": schema
+              },
+              "options": {
+
+                "form": {
+                  "attributes": {
+                    // "action": "/node/dynamicForms/getJsonFormResponse?formResponseId=" + formResponseId + "&apiDomain=" + apiDomain + "&formId=" + formId + "&code=" + code,
+                    // "action": "https://beta-api.tracktechllc.com/api/eForms/UpdateFormResponse?formResponseId=" + formResponseId,
+                    // "method": "post",
+                    // "enctype": "multipart/form-data"
+                  },
+                  "buttons": {
+                    "reset": {
+                      "click": function () {
+                        re = $('form#' + this.attributes.id);
+                        doConfirm(this, function yes() {
+                          // form.submit();
+                          // alert('yes clicked')
+                          re[0].reset();
+                          // this.validate(true);
+                          // this.refreshValidationState(true);
+                        }, function no() {
+                          // do nothing
+                          // alert('no clickec')
+                        });
+
+
+                      }
+                    },
+                    "submit": {
+                      "click": function () {
+                        let payload = {};
+                        let saveSign = document.getElementById('save-jpeg');
+                        if (saveSign) {
+                          saveSign.click();
+                          let sign = localStorage.getItem('sign');
+                          console.log(sign, 'sign');
+                          payload.sign = sign
+                        }
+
+                        payload.data = JSON.stringify(this.getValue(), null, "  ");
+                        // let data = JSON.parse(payload);
+                        // console.log(data,'payload parse');
+                        // payload = {...payload,...{sign:sign} }
+                        console.log(payload, 'payload');
+                        const method = "POST";
+                        const url = "/node/dynamicForms/getJsonFormResponse?formResponseId=" + formResponseId + "&apiDomain=" + apiDomain + "&formId=" + formId + "&code=" + code;
+                        const req = new XMLHttpRequest();
+                        // req.addEventListener("load", function () {
+                        //   if (req.status >= 200 && req.status < 300) {
+                        //     window.alert("Success: " + req.status);
+                        //   } else {
+                        //     window.alert("Error: " + req.status);
+                        //   }
+                        // });
+                        req.onreadystatechange = (e) => {
+                          if (req.readyState !== 4) {
+                            return;
+                          }
+
+                          if (req.status === 200) {
+                            console.log('SUCCESS', req.responseText);
+                            let result = JSON.parse(req.responseText);
+                            if (result.success) {
+                              toastr.success(result.data);
+                            } else {
+                              toastr.error(result.data);
+                            }
+                            localStorage.removeItem('sign');
+                            $('form#' + this.attributes.id)[0].reset();
+                            var control = $("#field1").alpaca("get");
+                            if (control) {
+                              control.refresh(function () {
+                                control.setValue([])
+                              });
+                            }
+                            this.domEl.find(".alpaca-form-button-submit").attrProp("disabled", true);
+                            // callback(JSON.parse(req.responseText));
+                          } else {
+                            console.warn('request_error');
+                          }
+                        };
+                        req.open(method, url);
+                        req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+                        req.send(JSON.stringify(payload))
+
+                        //                           data = {to: to, subject: subject, text: text};
+                        // var request = new XMLHttpRequest();
+                        // request.open('POST', 'http://localhost:3000/send', true);
+                        // request.send(JSON.stringify(data));
+                        // this.ajaxSubmit().always(function (data) {
+                        //   console.log(data);
+                        //   let result = data;
+                        //   if (result.success) {
+                        //     toastr.success(result.data);
+                        //   } else {
+                        //     toastr.error(result.data);
+
+                        //   }
+                        //   // alert(JSON.stringify(data));
+                        // });
+                        // $('form#' + this.attributes.id)[0].reset();
+                        // var control = $("#field1").alpaca("get");
+                        // if (control) {
+                        //   control.refresh(function () {
+                        //     control.setValue([])
+                        //   });
+                        // }
+                        // this.domEl.find(".alpaca-form-button-submit").attrProp("disabled", true);
+
+                      },
+                    }
+                  }
+                },
+                "helper": null,
+                "hideInitValidationError": true,
+                // "selectionHandler": function (files, data) {
+                //   this.data = data;
+                // },
+                "fields": options,
+
+              },
+              "postRender": function (control) {
+                // var flavour = control.childrenByPropertyId["location1"];
+                // var name = document.getElementById('location1')
+                // name.value = 'Hello Ram';
+                initMap();
+                //  let value =  main('Enter your location');
+                //   var location = null;
+
+                //     name.setValue(value);
+
+                // name.subscribe('flavour', function (val) {
+                //   alert("Val = " + val);
+                //   this.schema.data = val;
+                //   this.refresh();
+                // });
+
+              }
+              // "postRender": function (control) {
+              //   var nameField = control.childrenByPropertyId["location1"];
+              //   nameField.setValue('Ram')
+              // function getLocation() {
+              //   if (navigator.geolocation) {
+              //     return navigator.geolocation.getCurrentPosition(function (showPosition) {
+              //       return showPosition1(showPosition)
+              //     }, null, null);
+              //   } else {
+              //     console.log("Geolocation is not supported by this browser.");
+              //     return false;
+              //     // x.innerHTML = "Geolocation is not supported by this browser.";
+              //   }
+              // }
+              // function showPosition1(position) {
+              //             x.innerHTML = "Latitude: " + position.coords.latitude +
+              // "<br>Longitude: " + position.coords.longitude;
+              // $("#location1").alpaca({
+              //   "data": position.coords.latitude + '-' + position.coords.longitude
+              // });
+              // loc = position.coords.latitude;
+              // return position.coords.latitude;
+              // }
+              // control.getFieldEl().append("<div id='field8box' style='width: 200px; height: 100px; border: 1px gray solid; margin: 20px; border-radius: 20px;'></div>");
+              //  }
+
+            });
+
+          }
+
+        }
+      });
+      
+    }
+
+
+
+
+
+    function verifyCode() {
+      let code = document.getElementById('verificationCode').value;
+      let errorMsg = document.getElementById('errorMsg');
+
+      if (code.trim() !== '' && code.trim() != null) {
+        errorMsg.style.display = 'noen';
+        errorMsg.innerHTML = '';
+        $.getJSON('/node/dynamicForms/verifySecurityCode', { formResponseId: formResponseId, code: code, apiDomain: apiDomain }, function (jsonData) {
+          // console.log(jsonData);
+          let apiData = jsonData;
+          if (apiData.success) {
+            $('#codeexampleModal').modal('hide');
+            if (apiData.verifyCode.Item.isSecurityOptionSelected) {
+              loadFormwithJson();
+            }
+          } else {
+
+            let errorMessage = document.getElementById("errorMsg");
+            errorMessage.innerHTML = apiData.verifyCode;
+            // var btn = document.getElementById("formExpiryBtn");
+            // console.log(btn,'Button');
+            // btn.click();
+          }
+
+        });
+
+
+      } else {
+        errorMsg.style.display = 'inline';
+        errorMsg.innerHTML = 'Please enter the verification code.';
+
+      }
+    }
+    function yes(id) {
+      alert('id')
+      $('form#' + this.attributes.id)[0].reset();
+    }
+
+    function no() {
+      alert('id')
+    }
+
+    function doConfirm(msg, yesFn, noFn) {
+      var confirmBox = $("#confirmBox");
+      confirmBox.find(".message").text(msg);
+      // confirmBox.find(".yes,.no").unbind().click(function () {
+      //   confirmBox.hide();
+      // });
+      confirmBox.find(".yes").click(yesFn);
+      confirmBox.find(".no").click(noFn);
+      // confirmBox.show();
+      var btn = document.getElementById("myBtn");
+      btn.click();
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
+ 

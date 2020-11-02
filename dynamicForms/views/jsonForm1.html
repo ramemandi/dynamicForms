@@ -1,0 +1,1018 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link type="text/css" href="https://cdn.jsdelivr.net/npm/alpaca@1.5.27/dist/alpaca/bootstrap/alpaca.min.css"
+    rel="stylesheet" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/datepicker.min.css"></script> -->
+  <!--  -->
+
+  <!--  -->
+
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+
+
+  <script type="text/javascript"
+    src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+
+  <!-- https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js -->
+
+  <!-- fileupload control (for UploadField) -->
+  <!-- <link rel="stylesheet" type="text/css" href="http://alpacajs.org/lib/blueimp-file-upload/css/jquery.fileupload.css" />
+  <link rel="stylesheet" type="text/css"
+    href="http://alpacajs.org/lib/blueimp-file-upload/css/jquery.fileupload-ui.css" />
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+  <script src="http://alpacajs.org/lib/blueimp-file-upload/js/jquery.fileupload-ui.js"></script> -->
+
+  <link rel="stylesheet" type="text/css" href="/node/dynamicForms/vendor/alpaca_fileupload/css/jquery.fileupload.css" />
+  <link rel="stylesheet" type="text/css"
+    href="/node/dynamicForms/vendor/alpaca_fileupload/css/jquery.fileupload-ui.css" />
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.ui.widget.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.iframe-transport.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.fileupload.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.fileupload-process.js"></script>
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.fileupload-ui.js"></script>
+
+
+  <!-- handsontable (for GridField) -->
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/jquery.handsontable.full.js"></script>
+  <!-- <script src="http://alpacajs.org/lib/handsontable/dist/jquery.handsontable.full.js"></script> -->
+  <!-- <link rel="stylesheet" media="screen" href="../../lib/handsontable/dist/jquery.handsontable.full.css"/> -->
+
+  <!-- moment for date and datetime controls -->
+  <script src="/node/dynamicForms/vendor/alpaca_fileupload/js/moment-with-locales.min.js"></script>
+  <!-- <script src="http://alpacajs.org/lib/moment/min/moment-with-locales.min.js"></script> -->
+
+  <!-- bootstrap datetimepicker for date and datetime controls -->
+  <!-- <script src="http://alpacajs.org/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" media="screen" href="http://alpacajs.org/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" /> -->
+
+  <script
+    src="/node/dynamicForms/vendor/alpaca_fileupload/bootstrap_datetimepicker/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" media="screen"
+    href="/node/dynamicForms/vendor/alpaca_fileupload/bootstrap_datetimepicker/bootstrap-datetimepicker.css" />
+
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/alpaca@1.5.27/dist/alpaca/bootstrap/alpaca.min.js"></script>
+
+  <!-- Toaster message-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <!-- <script src="vendor/js/toastr.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+  <style>
+    div.alpaca-container-has-items>div {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      background: #333;
+
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      /* Center the DIV horizontally */
+    }
+
+    .fixed-header,
+    .fixed-footer {
+      width: 100%;
+      position: fixed;
+      /* background: #333; */
+      padding: 0px 40px 0px 40px;
+      color: #fff;
+    }
+
+    .fixed-header {
+      top: 0;
+    }
+
+    .fixed-footer {
+      bottom: 0;
+    }
+
+    /* Some more styles to beutify this example */
+    /* nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 7px 25px;
+      display: inline-block;
+    } */
+
+    .container p {
+      line-height: 200px;
+      /* Create scrollbar to test positioning */
+    }
+
+    .container-fluid {
+      max-height: calc(100% - 10px);
+      overflow-y: auto;
+    }
+  </style>
+
+
+
+</head>
+
+<body style="background-color: #c8c4c4; align:center">
+
+  <div class="fixed-header">
+
+    <!-- <div class="container-fluid"> -->
+      <div class="row" id="logo">
+        <!-- <img src="https://beta.tracktechllc.com/Images/Logos/ttl.jpg" width="30px" height="40px"> -->
+      </div>
+    <!-- </div> -->
+    <div class="row" id="fixedHeader" >
+
+      <!-- <div class="container-fluid">
+        <h3>Testing Header</h3>
+      </div> -->
+
+      <!-- <div class="row" id="logo">
+        <div class="col-md-4 col-lg-4 col-xs-4 col-sm-4"> <img src="https://beta.tracktechllc.com/Images/Logos/ttl.jpg"
+            width="30px" height="40px"></div>
+      </div>
+      <div class="row" id="fixedHeader">
+         <div class="">
+        <h3>Testing Header</h3>
+      </div>  
+        <div class='container'>
+          <h3>Testing Header</h3>
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+    <div class="col-md-4">
+     
+    </div>
+    <div class="col-md-8">
+      <h3>Testing Header</h3>
+    </div> -->
+    </div>
+  </div>
+  <div class="" style="padding-top: 30px;">
+    <div class="container-fluid">
+      <div class="">
+
+        <div id="form"></div>
+
+        <button type="button" id="myBtn" style="display: none;" class="btn btn-primary" data-toggle="modal"
+          data-target="#exampleModal">
+          Launch demo modal
+        </button>
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to clear the form?
+              </div>
+              <div class="modal-footer" id="confirmBox">
+                <button type="button" class="btn btn-secondary no" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary yes" data-dismiss="modal">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="fixed-footer" id="fixedFooter">
+    <!-- <div class="container">Copyright &copy; 2020 Tracktechllc.com , Version 1.0</div> -->
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const formId = urlParams.get('eFormId');
+      const Domain = urlParams.get('apiDomain');
+      $.getJSON('/node/dynamicForms/getFormLayout', { formId: formId,apiDomain:Domain }, function (layoutData) {
+        console.log('data', layoutData);
+        let data = layoutData;
+        if (data.data.Valid) {
+          let formLayoutdata = data.data.Item;
+          // for (let k = 0; k < formLayoutdata.length; k++) {
+            // const element = formLayoutdata[k];
+            if (formLayoutdata.cssFilePath) {
+            var headID = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = formLayoutdata.cssFilePath;
+
+            //link.href = 'http://fonts.googleapis.com/css?family=Oswald&effect=neon';
+            headID.appendChild(link);
+
+
+          }
+            if (formLayoutdata.header) {
+              let header = document.getElementById("fixedHeader");
+              header.innerHTML = formLayoutdata.header;
+            }
+            if (formLayoutdata.footer) {
+              let footer = document.getElementById("fixedFooter");
+              footer.innerHTML = formLayoutdata.footer;
+            }
+            if (formLayoutdata.logo) {
+              let header = document.getElementById("fixedHeader");
+              header.style.marginTop = "-30px";
+
+              let logodiv = document.getElementById("logo");
+              let logo = document.createElement('img');
+              logo.src = formLayoutdata.logo;
+              logo.width = 30;
+              logo.height = 40;
+              // logo.width = '30px';
+              // logo.height = '40px';
+              logodiv.append(logo);
+              // footer.innerHTML = formLayoutdata.footerHtml;
+            }
+            if (formLayoutdata.backGroundColor) {
+              document.body.style.backgroundColor = formLayoutdata.backGroundColor;
+            }
+          // }
+
+        } else {
+          console.log('No layout data');
+        }
+      })
+
+    })
+  </script>
+
+  <script type="text/javascript">
+    //  val.formURL + "&formResponseId=" + val.formResponseId + "&eFormId=" + val.eFormId + "&apiDomain=" + apiDomain;d
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const formId = urlParams.get('eFormId');
+    const apiDomain = urlParams.get('apiDomain');
+    const formResponseId = urlParams.get('formResponseId');
+
+    let formName = null;
+    let formDescription = null;
+    let formTitle = null;
+    let editFormData = null;
+    if (formId) {
+      $.getJSON('/node/dynamicForms/editForm', { formId: formId, apiDomain: apiDomain }, function (jsonData) {
+        console.log(jsonData, '163');
+        let data1 = jsonData;
+        if (data1.Valid) {
+          data = data1.Item;
+          formName = data.formName;
+          formDescription = data.formDescription;
+          formTitle = data.formTitle;
+          // document.getElementById('formName').value = data1.Item.formName;
+          // document.getElementById('formTitle').value = data1.Item.formTitle;
+          // document.getElementById('formDescription').value = data1.Item.formDescription;
+          var schemaObject = [];
+          var optionsOject = [];
+          let finalObject;
+          var formObject = [];
+          var tempObject = {}
+          for (let h = 0; h < data.fields.length; h++) {
+            const element = data.fields[h];
+            switch (data.fields[h].field_type) {
+              case 'text': textBox(data.fields[h])
+                break;
+              case 'paragraph': paraGraph(data.fields[h])
+                break;
+              case 'dropdown': dropdown(data.fields[h])
+                break;
+              case 'checkboxes': checkbox(data.fields[h])
+                break;
+              case 'radio': radio(data.fields[h])
+                break;
+              case 'file': file(data.fields[h]);
+                break;
+              case 'date': date(data.fields[h]);
+                break;
+              case 'number': number(data.fields[h]);
+                break;
+              case 'email': email(data.fields[h]);
+                break;
+              case 'time': time(data.fields[h]);
+                break;
+
+              default:
+                break;
+            }
+          }
+          // "properties": {
+          //       }
+          function descriptionCheck(data) {
+            let desc = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('description')) {
+                return desc = data.field_options.description;
+              } else {
+                return desc = null;
+              }
+              // console.log(desc,'description');
+            } else {
+              return desc = null;
+            }
+          }
+          function minimumCheck(data) {
+            let minimum = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('min')) {
+                return minimum = data.field_options.min;
+              } else {
+                return minimum = null;
+              }
+              // console.log(minimum,'minimumription');
+            } else {
+              return minimum = null;
+            }
+          }
+
+          function maximumCheck(data) {
+            let maximum = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('max')) {
+                return maximum = data.field_options.max;
+              } else {
+                return maximum = null;
+              }
+              // console.log(maximum,'maximumription');
+            } else {
+              return maximum = null;
+            }
+          }
+
+          function minlenCheck(data) {
+            let minlen = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('minlength')) {
+                return minlen = data.field_options.minlength;
+              } else {
+                return minlen = null;
+              }
+              // console.log(minlen,'minlenription');
+            } else {
+              return minlen = null;
+            }
+          }
+
+          function maxlenCheck(data) {
+            let maxlen = null;
+            if (data.field_options) {
+              if (data.field_options.hasOwnProperty('maxlength')) {
+                return maxlen = data.field_options.maxlength;
+              } else {
+                return maxlen = null;
+              }
+              // console.log(maxlen,'maxlenription');
+            } else {
+              return maxlen = null;
+            }
+          }
+          function email(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            //pattern: `${/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i}`
+            obj[`${label}`] = { format: 'email', type: "string", title: data.label, required: data.required, description: (description) ? description : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { "helper": (description) ? description : null, "placeholder": "", disallowEmptySpaces: true, disallowOnlyEmptySpaces: true, numericEntry: true }
+            optionsOject.push(opt);
+            return text;
+          }
+
+          function number(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            let minimum = minimumCheck(data);
+            let maximum = maximumCheck(data);
+            obj[`${label}`] = { type: "number", title: data.label, required: data.required, description: (description) ? description : null, minimum: (minimum) ? minimum : null, maximum: (maximum) ? maximum : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { "helper": (description) ? description : null, "placeholder": "", disallowEmptySpaces: true, disallowOnlyEmptySpaces: true, numericEntry: true }
+            optionsOject.push(opt);
+            return text;
+          }
+
+          function textBox(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            let minlen = minlenCheck(data);
+            let maxlen = maxlenCheck(data);
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, description: (description) ? description : null, minLength: (minlen) ? minlen : null, maxLength: (maxlen) ? maxlen : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { size: "20", "helper":(description) ? description : null, "placeholder": "" }
+            optionsOject.push(opt);
+            return text;
+          }
+          function paraGraph(data) {
+            let label = data.label;
+            let obj = {}
+            let opt = {};
+            let description = descriptionCheck(data);
+            let minlen = minlenCheck(data);
+            let maxlen = maxlenCheck(data);
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, description: (description) ? description : null, minLength: (minlen) ? minlen : null, maxLength: (maxlen) ? maxlen : null };
+            let text1 = schemaObject.push(obj);
+            opt[`${label}`] = { type: "textarea", "label": label, "placeholder": "", "helper":(description) ? description : null }
+            optionsOject.push(opt);
+            return text1;
+          }
+          function dropdown(data) {
+            let label = data.label;
+            let obj = {};
+            let enums = [];
+            let opt = {};
+            let include_blank = null;
+            let description = descriptionCheck(data);
+            if (data.field_options.options.length > 0) {
+              for (let o = 0; o < data.field_options.options.length; o++) {
+                const element = data.field_options.options[o].label;
+                enums.push(element);
+              }
+            }
+            // if(data.field_options.include_blank_option){
+            // }
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, enum: enums, description: (description) ? description : null };
+            let text2 = schemaObject.push(obj);
+            opt[`${label}`] = { type: "select", "helper": (description) ? description : null, "optionLabels": enums };
+            optionsOject.push(opt);
+            return true;
+
+          }
+
+
+          function checkbox(data) {
+            let label = data.label;
+            let obj = {}
+            let enums = [];
+            let opt = {};
+            let description = descriptionCheck(data);
+            let dataArray = null
+            if (data.field_options.options.length > 0) {
+              for (let o = 0; o < data.field_options.options.length; o++) {
+                const element = data.field_options.options[o].label;
+                enums.push(element);
+                if (data.field_options.options[o].checked) {
+                  dataArray = data.field_options.options[o].label;
+                }
+              }
+            }
+            obj[`${label}`] = {  type: "array", required: data.required, enum: enums, description: (description) ? description : null };
+            let text3 = schemaObject.push(obj);
+            opt[`${label}`] = { "hideNone":true, type: "checkbox", "label": label, "optionLabels": enums , "helper":(description) ? description : null};
+            optionsOject.push(opt);
+            return text3;
+          }
+          function radio(data) {
+            let label = data.label;
+            let obj = {}
+            let enums = [];
+            let opt = {};
+            let description = descriptionCheck(data);
+            if (data.field_options.options.length > 0) {
+              for (let o = 0; o < data.field_options.options.length; o++) {
+                const element = data.field_options.options[o].label;
+                enums.push(element);
+              }
+            }
+            obj[`${label}`] = { required: data.required, enum: enums, description: (description) ? description : null };
+            let text4 = schemaObject.push(obj);
+            opt[`${label}`] = { "hideNone":true, type: "radio", "label": label, "helper": (description) ? description : null, "optionLabels": enums };
+            optionsOject.push(opt);
+            return text4;
+          }
+
+          // function file(data) {
+          //   let label = data.label;
+          //   let obj = {};
+          //   let opt = {};
+          //   let description = descriptionCheck(data);
+          //   //  obj[`${label}`] = { type: "string", title: data.label, format: "uri", description: data.field_options.description }
+          //   obj[`${label}`] = { type: "file", title: data.label, format: "uri",description: (description) ? description : null }
+          //   let text = schemaObject.push(obj);
+          //   // opt[`${label}`] = { "styled": true, "type": "upload" }
+          //   opt[`${label}`] = {
+          //     "styled": true, "id": "photo_field", "type": "upload", "multiple": "false", "upload": {
+          //       "url": "https://beta-api.tracktechllc.com/api/eForms/UpdateFormResponseFile?formResponseId="+formResponseId+"&fileLabel="+label
+
+          //     }
+          //   }
+          //   // opt[`${label}`] = {
+          //   //   "type": "upload" ,"upload":{"url":"http://localhost:3000/getResponses"}  
+          //   // }
+          //   optionsOject.push(opt);
+          //   return text;
+          //   // });
+          // }
+
+          function file(data) {
+
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            obj[`${label}`] = { type: "string", title: data.label, required: data.required, format: "uri", description: (description) ? description : null }
+            // obj[`${label}`] = { type: "file", title: data.label, format: "uri", description: data.field_options.description }
+
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = {
+              id: "field1", "styled": true, "type": "file","helper":(description) ? description : null,
+              "selectionHandler": function (files, data) {
+                var myArray = [];
+                var file = {};
+                for (var i = 0; i < files.length; i++) {
+                  file = {
+                    'lastMod': files[i].lastModified,
+                    'lastModDate': files[i].lastModifiedDate,
+                    'name': files[i].name,
+                    'size': files[i].size,
+                    'type': files[i].type,
+                  }
+                  //add the file obj to your array
+                  myArray.push(file)
+                }
+
+                this.data = data;
+              }
+            }
+            // opt[`${label}`] = {
+            //   "styled": true,"id":"photo_field", "type": "upload", "multiple": "false", "upload": {
+            //     "url": "http://localhost:3000/getResponses"
+            //   }
+            // }
+            // opt[`${label}`] = {
+            //   "type": "upload" ,"upload":{"url":"http://localhost:3000/getResponses"}  
+            // }
+
+
+            optionsOject.push(opt);
+
+            return text;
+
+            // });
+          }
+          function date(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            obj[`${label}`] = { format: "date", title: label, required: data.required }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { type: "date", dateFormat: 'MM/DD/YYYY', "placeholder": " ", "helper":(description) ? description : null }
+            optionsOject.push(opt);
+            return text;
+          }
+
+          function time(data) {
+            let label = data.label;
+            let obj = {};
+            let opt = {};
+            let description = descriptionCheck(data);
+            obj[`${label}`] = { format: "time", title: label, required: data.required, "helper":(description) ? description : null }
+            let text = schemaObject.push(obj);
+            opt[`${label}`] = { type: "time", dateFormat: "HH:mm:ss" }
+            optionsOject.push(opt);
+            return text;
+          }
+          if (schemaObject.length > 0) {
+            let schema = {};
+            schema = Object.assign({}, ...schemaObject);
+          }
+          //    $(document).ready(function () {
+          if (schemaObject.length > 0 && optionsOject.length > 0) {
+            let schema = Object.assign({}, ...schemaObject);
+            let options = Object.assign({}, ...optionsOject);
+
+            console.log(schema, options);
+            //"action": "https://beta-api.tracktechllc.com/api/eForms/UpdateFormResponse?formResponseId="+formResponseId,
+            var now = new Date();
+            $("#form").alpaca({
+
+              "schema": {
+                "title": formName,
+                "description": formDescription,
+                "type": "object",
+                "properties": schema
+              },
+              "options": {
+                
+                "form": {
+                  "attributes": {
+                    "action": "/node/dynamicForms/getJsonFormResponse?formResponseId=" + formResponseId + "&apiDomain=" + apiDomain +"&formId="+formId,
+                    // "action": "https://beta-api.tracktechllc.com/api/eForms/UpdateFormResponse?formResponseId=" + formResponseId,
+                    "method": "post",
+                    "enctype": "multipart/form-data"
+                  },
+                  "buttons": {
+                    "reset": {
+                      "click": function () {
+                        re = $('form#' + this.attributes.id);
+                        doConfirm(this, function yes() {
+                          // form.submit();
+                          // alert('yes clicked')
+                          re[0].reset();
+                          // this.validate(true);
+                          // this.refreshValidationState(true);
+                        }, function no() {
+                          // do nothing
+                          // alert('no clickec')
+                        });
+
+
+                      }
+                    },
+                    "submit": {
+                      "click": function () {
+
+                        this.ajaxSubmit().always(function (data) {
+                          console.log(data);
+                          let result = data;
+                           if(result.success){
+                            toastr.success('Form submitted successfully.');
+                           }
+                          // alert(JSON.stringify(data));
+                        });
+                        $('form#' + this.attributes.id)[0].reset();
+                        var control = $("#field1").alpaca("get");
+                        if(control){
+                        control.refresh(function () {
+                          // behold, i am the callback that is fired once the refresh completes
+                          control.setValue([])
+                          // alert('field is refreshed')
+                        });
+                      }
+                      this.domEl.find(".alpaca-form-button-submit").attrProp("disabled", true);
+
+                      },
+                    }
+                  }
+                },
+                "helper": null,
+                "hideInitValidationError": true,
+                // "selectionHandler": function (files, data) {
+                //   this.data = data;
+                // },
+                "fields": options,
+
+              }
+
+            });
+          }
+
+        }
+      });
+
+    }
+
+    function yes(id) {
+      alert('id')
+      $('form#' + this.attributes.id)[0].reset();
+    }
+
+    function no() {
+      alert('id')
+    }
+
+    function doConfirm(msg, yesFn, noFn) {
+      var confirmBox = $("#confirmBox");
+      confirmBox.find(".message").text(msg);
+      // confirmBox.find(".yes,.no").unbind().click(function () {
+      //   confirmBox.hide();
+      // });
+      confirmBox.find(".yes").click(yesFn);
+      confirmBox.find(".no").click(noFn);
+      // confirmBox.show();
+      var btn = document.getElementById("myBtn");
+      btn.click();
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+
+  <script type="text/javascript">
+    let data = {
+      "fields": [
+        { "label": "what is your name", "field_type": "text", "required": true, "field_options": { "size": "small", "minlength": "1", "maxlength": "10", "min_max_length_units": "characters", "description": "Please enter your name" }, "cid": "c2" },
+        { "label": "Paragraph field", "field_type": "paragraph", "required": true, "field_options": { "size": "small", "description": "this field is not mandatory", "minlength": "0", "maxlength": "1000", "min_max_length_units": "characters" }, "cid": "c6" },
+        { "label": "Check box field", "field_type": "checkboxes", "required": true, "field_options": { "options": [{ "label": "True", "checked": false }, { "label": "False", "checked": false }], "description": "Check box field description", "include_other_option": true }, "cid": "c10" },
+        { "label": "File field", "field_type": "file", "required": true, "field_options": { "description": "https://www.gpsworld.com/wp-content/uploads/2020/03/GettyImages-1211384859-mobile-smartphone-health-PP.jpg" }, "cid": "c14" },
+        {
+          "label": "Radio button field", "field_type": "radio", "required": true, "field_options": {
+            "options": [{ "label": "Selected", "checked": false },
+            { "label": "Un-selected", "checked": false }, { "label": "Someother", "checked": false }], "include_other_option": true, "description": "please choose appropriate value"
+          }, "cid": "c18"
+        },
+        { "label": "Date field", "field_type": "date", "required": true, "field_options": { "description": "Enter your date of birth" }, "cid": "c22" },
+        { "label": "Page2", "field_type": "section_break", "required": true, "field_options": { "description": "Remaining fields" }, "cid": "c30" },
+        {
+          "label": "dropdown field", "field_type": "dropdown", "required": true, "field_options": {
+            "options": [{ "label": "Vizag", "checked": false },
+            { "label": "Hyderabad", "checked": false }], "include_blank_option": false, "description": "select city"
+          }, "cid": "c34"
+        }, { "label": "Time field", "field_type": "time", "required": true, "field_options": { "description": "Enter the time of arrival" }, "cid": "c38" }, { "label": "Number field", "field_type": "number", "required": true, "field_options": { "description": "Enter phone number", "integer_only": true, "min": "7999999999", "max": "9999999999", "units": "nil" }, "cid": "c42" }, { "label": "Website field", "field_type": "website", "required": true, "field_options": { "description": "give your github/facebook url" }, "cid": "c46" }, { "label": "email field", "field_type": "email", "required": true, "field_options": { "description": "Enter email address" }, "cid": "c50" }, { "label": "Price field", "field_type": "price", "required": true, "field_options": { "description": "add price here" }, "cid": "c54" }]
+    }
+    var schemaObject = [];
+    var optionsOject = [];
+    let finalObject;
+    var formObject = [];
+    var tempObject = {}
+    for (let h = 0; h < data.fields.length; h++) {
+      const element = data.fields[h];
+      // schemaObject = { name1: data.fields[h.}
+      switch (data.fields[h].field_type) {
+        case 'text': textBox(data.fields[h])
+          break;
+        case 'paragraph': paraGraph(data.fields[h])
+          break;
+        case 'dropdown': dropdown(data.fields[h])
+          break;
+        case 'checkboxes': checkbox(data.fields[h])
+          break;
+        case 'radio': radio(data.fields[h])
+          break;
+        case 'file': file(data.fields[h]);
+          break;
+        case 'date': date(data.fields[h]);
+          break;
+        default:
+          break;
+      }
+    }
+    // "properties": {
+    //       }
+    function textBox(data) {
+      let label = data.label;
+      let obj = {};
+      let opt = {};
+      obj[`${label}`] = { type: "string", title: data.label, required: data.required, }
+      let text = schemaObject.push(obj);
+      opt[`${label}`] = { size: "20", "helper": "Please enter your name.", "placeholder": "Enter your name" }
+      optionsOject.push(opt);
+      return text;
+    }
+    function paraGraph(data) {
+      let label = data.label;
+      let obj = {}
+      let opt = {};
+      obj[`${label}`] = { type: "string", title: data.label, required: data.required };
+      let text1 = schemaObject.push(obj);
+      opt[`${label}`] = { type: "textarea", "label": label, "placeholder": "Enter Description" }
+      optionsOject.push(opt);
+      return text1;
+    }
+    function dropdown(data) {
+      let label = data.label;
+      let obj = {};
+      let enums = [];
+      let opt = {};
+      if (data.field_options.options.length > 0) {
+        for (let o = 0; o < data.field_options.options.length; o++) {
+          const element = data.field_options.options[o].label;
+          enums.push(element);
+        }
+      }
+      obj[`${label}`] = { type: "string", title: data.label, required: data.required, enum: enums };
+      let text2 = schemaObject.push(obj);
+      opt[`${label}`] = { type: "select", "helper": "Select your city.", "optionLabels": enums };
+      optionsOject.push(opt);
+      return true;
+
+    }
+
+
+    function checkbox(data) {
+      let label = data.label;
+      let obj = {}
+      let enums = [];
+      let opt = {};
+
+      if (data.field_options.options.length > 0) {
+        for (let o = 0; o < data.field_options.options.length; o++) {
+          const element = data.field_options.options[o].label;
+          enums.push(element);
+        }
+      }
+      obj[`${label}`] = { type: "array", required: data.required, enum: enums };
+      let text3 = schemaObject.push(obj);
+      opt[`${label}`] = { type: "checkbox", "label": label, "optionLabels": enums };
+      optionsOject.push(opt);
+      return text3;
+    }
+    function radio(data) {
+      let label = data.label;
+      let obj = {}
+      let enums = [];
+      let opt = {};
+      if (data.field_options.options.length > 0) {
+        for (let o = 0; o < data.field_options.options.length; o++) {
+          const element = data.field_options.options[o].label;
+          enums.push(element);
+        }
+      }
+      obj[`${label}`] = { required: data.required, enum: enums };
+      let text4 = schemaObject.push(obj);
+      opt[`${label}`] = { type: "radio", "label": label, "helper": "Select your city.", "optionLabels": enums };
+      optionsOject.push(opt);
+      return text4;
+    }
+    function file(data) {
+      let label = data.label;
+      let obj = {};
+      let opt = {};
+      obj[`${label}`] = { type: "string", title: data.label, format: "uri", description: data.field_options.description }
+      let text = schemaObject.push(obj);
+      opt[`${label}`] = { "styled": true, "type": "file" }
+      optionsOject.push(opt);
+      return text;
+    }
+    function date(data) {
+
+      let label = data.label;
+      let obj = {};
+      let opt = {};
+      obj[`${label}`] = { format: "date" }
+      let text = schemaObject.push(obj);
+      opt[`${label}`] = { type: "date", dateFormat: 'MM/DD/YYYY', "placeholder": "Enter your DATE OF BIRTH" }
+      optionsOject.push(opt);
+      return text;
+    }
+    if (schemaObject.length > 0) {
+      let schema = {};
+      schema = Object.assign({}, ...schemaObject);
+    }
+    $(document).ready(function () {
+      if (schemaObject.length > 0 && optionsOject.length > 0) {
+        let schema = Object.assign({}, ...schemaObject);
+        let options = Object.assign({}, ...optionsOject);
+        console.log(schema, options);
+        var now = new Date();
+        $("#form").alpaca({
+
+          "schema": {
+            "title": "User Feedback",
+            "description": "What do you think about Alpaca?",
+            "type": "object",
+            "properties": schema
+          },
+          "options": {
+            "helper": "Tell us what you think about Alpacaaaa!",
+            "fields": options,
+            "form": {
+              "attributes": {
+                "action": "http://www.alpacajs.org/endpoints/echo.php",
+                "method": "post"
+              },
+              "buttons": {
+                "submit": {},
+                "reset": {}
+              }
+            },
+          }
+
+        });
+      }
+
+    });
+
+  </script>
+  $("#form").alpaca({
+    "schema": {
+        "type": "object",
+        "properties": {
+            "files": {
+                "type": "array"
+            }
+        }
+    },
+    "options": {
+        "fields": {
+            "files": {
+                "type": "upload",
+                "multiple": true,
+                "upload": {
+                    "url": "http://localhost:3000/getResponses"
+                }
+            }
+        },
+        "form": {
+            "attributes": {
+                "action": "http://localhost:3000/getResponses",
+                "method": "post"
+            },
+            "buttons": {
+                "validate": {
+                    "title": "Validate and view JSON!",
+                    "click": function () {
+                        this.refreshValidationState(true);
+                        if (this.isValid(true)) {
+                            var value = this.getValue();
+                            alert(JSON.stringify(value, null, "  "));
+                        }
+                    }
+                },
+                "submit": {}
+            }
+        }
+    }
+});
+</body>
+
+</html>
+<!-- "schema": {
+  "title": "User Feedback",
+  "description": "What do you think about Alpaca?",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "feedback": {
+      "type": "string",
+      "title": "Feedback"
+    },
+    "ranking": {
+      "type": "string",
+      "title": "Ranking",
+      "enum": ['excellent', 'ok', 'so so']
+    }
+  }
+},
+"options": {
+  "helper": "Tell us what you think about Alpacaaaa!",
+  "fields": {
+    "name": {
+      "size": 20,
+      "helper": "Please enter your name.",
+      "placeholder": "Enter your name"
+    },
+    "feedback": {
+      "type": "textarea",
+      "rows": 5,
+      "cols": 40,
+      "helper": "Please enter your feedback."
+    },
+    "ranking": {
+      "type": "select",
+      "helper": "Select your ranking.",
+      "optionLabels": ["Awesome!", "It's Ok", "Hmm..."]
+    }
+  },
+  "form": {
+    "attributes": {
+      "action": "http://www.alpacajs.org/endpoints/echo.php",
+      "method": "post"
+    },
+    "buttons": {
+      "submit": {},
+      "reset": {}
+    }
+  },
+} -->
