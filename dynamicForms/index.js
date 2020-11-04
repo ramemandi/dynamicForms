@@ -159,14 +159,73 @@ app.post('/node/dynamicForms/getJsonFormResponse', async (req, res) => {
     console.log(isLatLng.label, '271');
     formData[`${isLatLng.label}`] = formData.location_hidden;
   }
-  // console.log(formData,'formData');
+
+  let isAddress = _.findWhere(formSchema.Item.fields, { "field_type": "address" });
+  if (isAddress !== undefined) {
+    if (isAddress.required) {
+      if (formData['Address']) {
+        // var file = new File([myBlob], "name");
+        let lstAddress = formData['Address'];
+        for (let m = 0; m < lstAddress.length; m++) {
+          let streets = lstAddress[m][`${isAddress.label}`]['street'];
+          let streetList = streets.filter(Boolean)
+          if(streetList.length <=0){
+            return res.status(200).send({
+              success: false,
+              data: 'Street name is mandatory'
+            })
+          }
+          let city = lstAddress[m][`${isAddress.label}`]['city'];
+          if(city == "" || city == null || city == "null" ){
+            return res.status(200).send({
+              success: false,
+              data: 'City name is mandatory'
+            })
+          }
+          let state = lstAddress[m][`${isAddress.label}`]['state'];
+          if(state == "" || state == null || state == "null" ){
+            return res.status(200).send({
+              success: false,
+              data: 'State name is mandatory'
+            })
+          }
+          let zip = lstAddress[m][`${isAddress.label}`]['zip'];
+          if(zip == "" || zip == null || zip == "null" ){
+            return res.status(200).send({
+              success: false,
+              data: 'Zip name is mandatory'
+            })
+          }
+          
+        }
+        // console.log(req.body.sign, 'test')
+        // formData[`${isAddress.label}`] = req.body.sign;
+
+      } else {
+        return res.status(200).send({
+          success: false,
+          data: isAddress.label + ' is Mandatory for this form.'
+        })
+      }
+    } else {
+      if (req.body.sign) {
+        // var file = new File([myBlob], "name");
+        console.log(req.body.sign, 'test')
+        sign[`${isAddress.label}`] = req.body.sign;
+
+      }
+    }
+  }
+  // console.log(JSON.stringify(formData),'formData');
+
+
 
   let meargedData = { ...fields, ...formData };
   console.log('=======================================================================');
   // console.log(meargedData, 'meargedData');
 
   let isSignIndex = _.findWhere(formSchema.Item.fields, { "field_type": "esignature" });
-  console.log(isSignIndex, 'isSignIndex');
+
   let sign = {};
   if (isSignIndex !== undefined) {
     if (isSignIndex.required) {
@@ -193,7 +252,7 @@ app.post('/node/dynamicForms/getJsonFormResponse', async (req, res) => {
 
   const summary = { ...meargedData, ...sign };
 
-  // console.log(summary, 'summary');
+  console.log(JSON.stringify(summary), 'summary');
   let header = { "Content-Type": "application/json" }
   Request.post({
     "headers": header,

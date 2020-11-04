@@ -744,43 +744,6 @@
           //       location = position.coords.latitude;
           //              return position.coords.latitude;
           //     }
-          function addMore(data) {
-            let label = data.label;
-            let obj = {};
-            let opt = {};
-            let obj1 = {};
-            let opt1 = {};
-            let description = descriptionCheck(data);
-            let minlen = minlenCheck(data);
-            let maxlen = maxlenCheck(data);
-            let properties = {}
-            properties[`${label}`] = { type: "string", title: data.label, required: data.required, description: (description) ? description : null, minLength: (minlen) ? minlen : null, maxLength: (maxlen) ? maxlen : null }
-            obj[`list`] = {
-              "default": "test",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": properties
-              },
-              "minItems": 1
-            }
-            let text = schemaObject.push(obj);
-            let fields = {};
-            fields[`${data.label}`] = { "label": data.label }
-            /// 
-            opt[`list`] =
-            {
-              "toolbarSticky": true,
-              "toolbarPosition": "top",
-
-              "items": {
-                "fields": fields
-              },
-              "actionbar": actionFields
-            }
-            optionsOject.push(opt);
-          }
-
           function address(data) {
             let label = data.label;
             let obj = {};
@@ -795,8 +758,9 @@
               let properties = {}
               properties[`${label}`] = { type: "any", title: data.label, required: data.required, description: (description) ? description : null }
               obj[`${data.label}`] = {
-                "default": "temp1",
+                "default": "test",
                 "type": "array",
+                "required":true,
                 "items": {
                   "type": "object",
                   "properties": properties
@@ -805,7 +769,7 @@
               }
               let text = schemaObject.push(obj);
               let fields = {};
-              fields[`${data.label}`] = { type: "address", "label": data.label, "addressValidation": true }
+              fields[`${data.label}`] = { type: "address", "label": data.label, "addressValidation": true, validateAddress:true }
               /// 
               opt[`${data.label}`] =
               {
@@ -823,7 +787,8 @@
               opt[`${label}`] =
               {
                 "type": "address",
-                "addressValidation": true
+                "addressValidation": true,
+                "validateAddress":true
               }
               optionsOject.push(opt);
             }
@@ -846,100 +811,7 @@
                   element.insertAdjacentHTML('beforeend', div);
                   element.insertAdjacentHTML('beforeend', signatureDiv);
                   element.insertAdjacentHTML('beforeend', btndiv);
-                  // const element = elements[r];
-                  // var div = document.createElement('div');
-                  // div.className = 'wrapper';
-                  // var canvasTag = document.createElement('canvas');
-                  // canvasTag.id = "signature-pad";
-                  // canvasTag.className = "signature-pad";
-                  // //  canvasTag.width = 500;
-                  // //  canvasTag.height = 125;
-                  // var signaturediv = document.createElement('div');
-                  // signaturediv.className = 'wrapper1';
-                  // var labelTag = document.createElement('label');
-                  // labelTag.innerHTML = label;
-                  // labelTag.id = "signature";
-                  // labelTag.style.width = "400px";
-                  // if(reqstatus){
-                  //   var signRequired = document.createElement('span');
-                  // signRequired.className = "alpaca-required-indicator";
-                  // signRequired.innerHTML = '(required)';
-                  // labelTag.appendChild(signRequired)
-                  // }
-
-
-
-                  // signaturediv.appendChild(labelTag);
-
-                  // div.appendChild(canvasTag);
-                  // //SAVE PNG BUTTON
-                  // // var btnPng = document.createElement('button');
-                  // // btnPng.id = "save-png";
-                  // // btnPng.innerHTML = "Save as PNG";
-
-                  // // div.appendChild(btnPng);
-
-                  // //SAVE JPEG BUTTON
-                  // var btnjpeg = document.createElement('a');
-                  // btnjpeg.id = "save-jpeg";
-                  // btnjpeg.className = 'btn btn-md btn-default';
-                  // btnjpeg.style.display = 'none';
-                  // btnjpeg.innerHTML = "Save";
-                  // // div.appendChild(btnjpeg);
-
-                  // //DRAW BUTTON
-                  // var btndraw = document.createElement('a');
-                  // btndraw.id = "draw";
-                  // btndraw.className = 'btn btn-md btn-default';
-                  // btndraw.innerHTML = "DRAW";
-
-                  // // div.appendChild(btndraw);
-
-                  // //SAVE Erase BUTTON
-                  // var btnerase = document.createElement('a');
-                  // btnerase.id = "erase";
-                  // btnerase.className = 'btn btn-md btn-default';
-                  // btnerase.innerHTML = "Erase";
-                  // // div.appendChild(btnerase);
-
-                  // //SAVE Clearn  BUTTON
-                  // var btnclear = document.createElement('a');
-                  // btnclear.id = "clear";
-                  // btnclear.className = 'btn btn-md btn-default';
-                  // btnclear.innerHTML = "clear";
-                  // // div.appendChild(btnerase);
-
-                  // var esignHelper = document.createElement('p');
-                  // esignHelper.className = 'help-block';
-                  // var esignHelperText = document.createElement('i');
-                  // esignHelperText.className = 'glyphicon glyphicon-info-sign';
-                  // esignHelper.appendChild(esignHelperText);
-                  // esignHelper.innerHTML='Make sure to draw by touching the signature area to sign this eForm.';
-
-                  // elements[r].appendChild(signaturediv);
-
-                  // elements[r].appendChild(div);
-                  // var btndiv = document.createElement('div');
-                  // btndiv.className = 'wrapper';
-                  // btndiv.style.height = '100px'
-                  // //  btndiv.appendChild(btnPng);
-                  // btndiv.appendChild(esignHelper);
-                  // btndiv.appendChild(btnjpeg);
-                  // btndiv.appendChild(btndraw);
-                  // btndiv.appendChild(btnerase);
-                  // btndiv.appendChild(btnclear);
-                  // elements[r].appendChild(btndiv);
-
-                  // //         <div class="wrapper">
-                  // //   <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
-                  // // </div>
-
-                  // // <button id="save-png">Save as PNG</button>
-                  // // <button id="save-jpeg">Save as JPEG</button>
-                  // // <!-- <button id="save-svg">Save as SVG</button> -->
-                  // // <button id="draw">Draw</button>
-                  // // <button id="erase">Erase</button>
-                  // // <button id="clear">Clear</button>
+ 
                 }
 
 
@@ -969,30 +841,7 @@
                   backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
                 });
 
-                // document.getElementById('save-png').addEventListener('click', function () {
-                //   if (signaturePad.isEmpty()) {
-                //     return alert("Please provide a signature first.");
-                //   }
-
-                //   var data = signaturePad.toDataURL('image/png');
-                //   console.log(data);
-                //   window.open(data);
-                // });
-
-
-
-
-
-                // document.getElementById('save-svg').addEventListener('click', function () {
-                //   if (signaturePad.isEmpty()) {
-                //     return alert("Please provide a signature first.");
-                //   }
-
-                //   var data = signaturePad.toDataURL('image/svg+xml');
-                //   console.log(data);
-                //   console.log(atob(data.split(',')[1]));
-                //   window.open(data);
-                // });
+             
 
                 document.getElementById('save-jpeg').addEventListener('click', function () {
                   if (signaturePad.isEmpty()) {
@@ -1050,23 +899,7 @@
           }
 
 
-          // function location(data) {
-          //   let label = data.label;
-          //   let obj = {};
-          //   let opt = {};
-          //   let d;
-          //   // (async () => {
-          //   //   d = await initMap(label, data.required);
-          //   // })
-          //   // d = initMap(label);
-
-          //   obj[`${label}`] = { default: d, type: "any", title: data.label, required: data.required }
-          //   let text = schemaObject.push(obj);
-          //   opt[`${label}`] = { id: "location1", "type": "any", "addressValidation": true, "showMapOnLoad": true, disabled: true }
-          //   optionsOject.push(opt);
-
-          //   return text;
-          // }
+        
           function location(data) {
             let label = data.label;
             let obj = {};
@@ -1462,10 +1295,10 @@
             let obj = {};
             let opt = {};
             let description = descriptionCheck(data);
+            if(!data.addmore){
             obj[`${label}`] = { type: "string", title: data.label, required: data.required, format: "uri", description: (description) ? description : null }
-            // obj[`${label}`] = { type: "file", title: data.label, format: "uri", description: data.field_options.description }
-
             let text = schemaObject.push(obj);
+            
             opt[`${label}`] = {
               id: "field1", "styled": true, "type": "file", "helper": (description) ? description : null,
               "selectionHandler": function (files, data) {
@@ -1482,23 +1315,45 @@
                   //add the file obj to your array
                   myArray.push(file)
                 }
-
                 this.data = data;
               }
             }
-            // opt[`${label}`] = {
-            //   "styled": true,"id":"photo_field", "type": "upload", "multiple": "false", "upload": {
-            //     "url": "http://localhost:3000/getResponses"
-            //   }
-            // }
-            // opt[`${label}`] = {
-            //   "type": "upload" ,"upload":{"url":"http://localhost:3000/getResponses"}  
-            // }
-
-
             optionsOject.push(opt);
-
             return text;
+          }else{
+            let textproperties = {}
+              textproperties[`${label}`] = { type: "string", title: data.label, required: data.required, description: (description) ? description : null,format:"uri" }
+              obj[`${data.label}`] = {
+                "default": "test",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": textproperties
+                },
+                "minItems": 1
+              }
+              let text = schemaObject.push(obj);
+              let fields = {};
+              fields[`${data.label}`] = { "label": data.label, "styled": true, "type": "file", "helper": (description) ? description : null,
+              "selectionHandler": function (files, data) {
+                var myArray = [];
+                var file = {};
+                this.data = data;
+              }
+             }
+  
+              opt[`${data.label}`] =
+              {
+                "toolbarSticky": true,
+                "toolbarPosition": "top",
+
+                "items": {
+                  "fields": fields
+                },
+                "actionbar": actionFields
+              }
+              optionsOject.push(opt);
+          }
 
             // });
           }
@@ -1841,4 +1696,22 @@
 
 </body>
 
+<script>
+ let temparr = {
+"key" : "Please mention your fullname with uppercase?",
+"value" : "[{\"Please mention your fullname with uppercase?\":\"Emandi Ram\"},{\"Please mention your fullname with uppercase?\":\"Emandi Rambabu\"}]",
+"fieldType" : "text"
+};
+let tempkey = temparr.key;
+let tempobj = JSON.parse(temparr.value)
+for (let k = 0; k < 2; k++) {
+  // console.log(tempobj[k][`${tempkey}`]);
+  const element = tempobj[k][`${tempkey}`];
+  if(k===0 && tempobj[k].hasOwnProperty(`${tempkey}`)){
+    console.log('Q).',tempkey);
+  }
+  console.log('A)',element);
+  
+}
+</script>
 </html>
